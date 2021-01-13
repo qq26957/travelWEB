@@ -6,23 +6,28 @@ body{
   margin: 0;
   padding: 0;
 }
-.el-carousel__item h3 {
-  color: #475669;
-  font-size: 14px;
-  opacity: 0.75;
-  line-height: 150px;
-  margin: 0;
-}
-
-.el-carousel__item:nth-child(2n) {
-  background-color: #99a9bf;
-}
-
-.el-carousel__item:nth-child(2n+1) {
-  background-color: #d3dce6;
-}
-
 .home {
+  position: relative;
+  &-slider{
+    position: fixed;
+    z-index: 999;
+    top: 450px;
+    right: 5px;
+    width: 60px;
+    background-color: rgba(255, 255, 255, 0.8);
+    display: grid;
+    grid-template-rows: 60px 60px 60px; 
+    text-align: center;
+  
+    line-height: 60px;
+    .weixin >img{
+      width: 60px;
+      height: 60px;
+    }
+    >div{
+      border-bottom: 1px solid red;
+    }
+  }
   &-swiper {
     &-img {
       width: 100%;
@@ -229,8 +234,7 @@ body{
   &-theme {
     position: relative;
     width: 100%;
-    height: 1600px;
-
+    height: 3785px;
     .title {
       width: 100%;
       height: 250px;
@@ -340,6 +344,74 @@ body{
     width: 1px;
     height: 90px;
   }
+  &-news{
+    width: 100%;
+    height: 800px;
+    background: url("/static/img/s3bg.jpg") no-repeat top left;
+    .title {
+      width: 100%;
+      height: 250px;
+      display: flex;
+      justify-content: center;
+      position: relative;
+      .center {
+        position: absolute;
+        top: 105px;
+        text-align: center;
+        color: rgb(0, 172, 250);
+        >h3 {
+          color: white;
+          line-height: 30px;
+        }
+      }
+    }
+    .swiper{
+      width: 1300px;
+      margin: 0 auto;
+      /deep/ .el-carousel__arrow{
+        width: 75px;
+        height: 75px;
+        font-size: 35px;
+      }
+      /deep/ .el-carousel__mask{
+        background-color: rgba($color: #000000, $alpha: 0);
+      }
+      .el-carousel__item{
+        background-color: rgba($color: #000000, $alpha: 0);
+      }
+      .swiper-item{
+          &-content{
+            width: 100%;
+            height: 100%;
+            position: relative;
+            .news-img{
+              width: 100%;
+              height: 80%;
+            }
+            .description{
+              position: absolute;
+              bottom: 30px;
+              width: 70%;
+              height: 30%;
+              left: 15%;
+              background-color: white;
+              padding: 20px;
+              color: rgb(128, 128, 128);
+              >h4{
+                border-bottom: 1px solid red;
+                color: rgb(23, 179, 250);
+              }
+            }
+          }
+          &-content:hover{ 
+            transform: scale(1.1);
+            transition: all .5s ease;
+          }
+      }
+     
+    }
+  }
+  
 }
 @keyframes fangda{
   0%{
