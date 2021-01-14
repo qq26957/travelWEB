@@ -1,13 +1,15 @@
 <template>
   <div id="app">
-    <div class="title">
+     <div class="title">
+       <h2 class="icon">随 心 游</h2>
       <el-menu
         :default-active="activeIndex"
-        class="el-menu-demo"
+        class="el-menu-demo title-tab"
         mode="horizontal"
         @select="handleSelect"
         background-color="rgba(0,0,0,0)"
         text-color="white"
+
       >
         <el-menu-item index="1">
           <router-link to="/"><div>首页</div></router-link></el-menu-item
@@ -79,15 +81,31 @@ export default {
   font-family: "Avenir", Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-
-  color: #2c3e50;
-  margin-top: 60px;
+  color: #2c3e50; 
   .title {
     position: absolute;
+    top: 0px;
+    width: 100%;
+    .icon{
+    padding: 7px;
+    position: absolute;
+    margin: 15px;
+    top: 0px;
+    left: 100px;
+    border-radius: 20px;
+    box-shadow: 3px -2px 4px 2px #15536f;
+    border: 2px solid  rgb(1, 172, 250);
+    z-index: 7;
+    font-family: "仿宋";
+    font-weight: 900;
+    }
+    &-tab{
+    position: absolute;
+    top: 0px;
     z-index: 999;
     left: 500px;
     width: 50%;
-    top: 0px;
+
     /deep/ .el-menu-item{
       padding: 0;
     }
@@ -103,12 +121,9 @@ export default {
     }
      }
   }
+   }
   .content {
-    position: absolute;
-    top: 0px;
-    z-index: 1;
     width: 100%;
-    height: 3000px;
   }
   .footer{
     position: relative;

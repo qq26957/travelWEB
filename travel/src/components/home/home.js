@@ -1,4 +1,4 @@
-let imgBaseUrl = "../static/img/";
+let imgBaseUrl = "../static/img/home/";
 export default {
   name: "home",
   data() {
@@ -19,7 +19,7 @@ export default {
       recommendedList:[
         {imgUrl: `${imgBaseUrl}siguniangshan.jpg`,text:"四姑娘山",english:"Four girl mountain",flag:false,index:1},
         {imgUrl: `${imgBaseUrl}hongyadong.jpg`,text:"洪崖洞",english:"HongYa hole",flag:false,index:2},
-        {imgUrl: `${imgBaseUrl}xinaggelila.jpg`,text:"香格里拉",english:"Shangri-la",flag:false,index:3},
+        {imgUrl: `${imgBaseUrl}xianggelila.jpg`,text:"香格里拉",english:"Shangri-la",flag:false,index:3},
         {imgUrl: `${imgBaseUrl}fushishan.jpg`,text:"富士山",english:"Mount Fuji",flag:false,index:4},
       ],
       newsList:[

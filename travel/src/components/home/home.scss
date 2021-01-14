@@ -62,7 +62,7 @@ body{
     height: 700px;
     display: flex;
     justify-content: center;
-    background: url("/static/img/s1bg.jpg") no-repeat top left;
+    background: url("/static/img/home/s1bg.jpg") no-repeat top left;
     background-color: rgb(9, 11, 15);
     background-size: 100% 100%;
 
@@ -176,7 +176,7 @@ body{
   }
 
   &-about {
-    background: url("/static/img/s2bg.jpg") no-repeat top left;
+    background: url("/static/img/home/s2bg.jpg") no-repeat top left;
     background-size: 100% 100%;
     width: 100%;
     height: 1000px;
@@ -234,7 +234,7 @@ body{
   &-theme {
     position: relative;
     width: 100%;
-    height: 3785px;
+    height: 3450px;
     .title {
       width: 100%;
       height: 250px;
@@ -258,13 +258,17 @@ body{
       height: 800px;
       width: 100%;
       color: white;
-      
+      >li{
+        height: 800px;
+      }
       .mengban {
         position: relative;
         color: white;
         width: 100%;
+        height: 100%;
         .background{
           width: 100%;
+          height: 100%;
           animation: suoxiao .5s linear forwards;
         }
         .background-color {
@@ -290,8 +294,10 @@ body{
         color: white;
         overflow: hidden;
         width: 100%;
+        height: 100%;
         .background{
           width: 100%;
+          height: 100%;
           animation: fangda .5s linear forwards;
         }
         .center {
@@ -318,6 +324,7 @@ body{
         position: absolute;
         left: 50%;
         top: 0;
+        z-index: 5;
         content: "";
         width: 1px;
         height: 150px;
@@ -330,6 +337,7 @@ body{
         content: "";
         width: 1px;
         height: 150px;
+        z-index: 5;
         background-color: white;
       }
     }
@@ -347,7 +355,7 @@ body{
   &-news{
     width: 100%;
     height: 800px;
-    background: url("/static/img/s3bg.jpg") no-repeat top left;
+    background: url("/static/img/home/s3bg.jpg") no-repeat top left;
     .title {
       width: 100%;
       height: 250px;

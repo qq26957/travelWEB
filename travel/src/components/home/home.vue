@@ -20,8 +20,6 @@
             class="home-swiper-img"
             style="height:800px; width:100%"
           />
-          <h1>{{ item.url }}</h1>
-          <img src="../../assets/img/5.jpg" alt="" />
         </el-carousel-item>
       </el-carousel>
       <div class="home-swiper-num">
@@ -79,9 +77,9 @@
             [2]</span
           >
         </div>
-        <div class="jiantou2"><img src="/static/img/jiantou.png" alt="" /></div>
+        <div class="jiantou2"><img src="/static/img/home/jiantou.png" alt="" /></div>
         <div class="showImg">
-          <img src="/static/img/cdgaoxinqu.jpg" alt="" />
+          <img src="/static/img/home/cdgaoxinqu.jpg" alt="" />
           <div class="mengban2"></div>
         </div>
       </div>
@@ -114,7 +112,7 @@
                 <img :src="item.imgUrl" alt="" class="background" />
                 <div class="background-color">
                   <div class="center">
-                    <img src="/static/img/ic1.png" alt="" />
+                    <img src="/static/img/home/home/ic1.png" alt="" />
                     <h1 class="english">{{ item.english }}</h1>
                     <h3 class="text">{{ item.text }}</h3>
                   </div>
@@ -152,15 +150,7 @@
         </el-carousel>
       </div>
     </div>
-    <footer class="home-footer">
-      <h1>旅游景点</h1>
-      <div class="lianjie">友情连接<i>☞☞☞</i></div>
-      <div class="gang"></div>
-      <img src="" alt="">
-      <div>关于我们|广告服务|项目合作|法律声明|帮助中心</div>
-      <div>本网站由XXXX设计实现 网站服务热线： 0817-9999999 QQ：2506494384</div>
-      <div>京ICP：1234567备案</div>
-    </footer>
+   
   </div>
 </template>
 
