@@ -33,6 +33,7 @@
               <pagenation
                 :total="total"
                 :page="page"
+                :pageSize="pageSize"
                 @changePage="changePage"
               ></pagenation>
             </div>

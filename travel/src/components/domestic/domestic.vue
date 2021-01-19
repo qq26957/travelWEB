@@ -1,13 +1,13 @@
 <template>
-  <div class="news">
-    <div class="news-img"><img src="/static/img/news/b1.jpg" alt="" /></div>
-    <div class="news-content">
+  <div class="domestic">
+    <div class="domestic-img"><img src="/static/img/domestic/b1.jpg" alt="" /></div>
+    <div class="domestic-content">
       <div class="background">
         <div class="title">
           <transition appear name="bounce">
             <div class="title-text">
               <h1>境内游</h1>
-              <h3>News Information</h3>
+              <h3>domestic Information</h3>
               <h1>—</h1>
             </div>
           </transition>
@@ -16,6 +16,7 @@
               <el-breadcrumb-item :to="{ path: '/' }" class="home"
                 >首页</el-breadcrumb-item
               >
+                 <el-breadcrumb-item class="current">主题旅游</el-breadcrumb-item>
               <el-breadcrumb-item class="current">境内游</el-breadcrumb-item>
             </el-breadcrumb>
           </div>
@@ -23,7 +24,7 @@
         <div class="bottom">
           <div class="bottom-left">
             <ul class="content">
-              <li class="content-item" v-for="item in dataList" :key="item.id">
+              <li class="content-item" v-for="item in dataList" :key="item.id" >
                 <div class="left">
                   <img :src="item.imgUrl" alt="" class="left-img" />
                   <div class="left-mengban">
@@ -72,12 +73,13 @@
               <pagenation
                 :total="total"
                 :page="page"
+                :pageSize="pageSize"
                 @changePage="changePage"
               ></pagenation>
             </div>
           </div>
           <div class="slider">
-            <div>News Information</div>
+            <div>Themes-Domestic</div>
           </div>
         </div>
       </div>

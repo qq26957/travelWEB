@@ -9,6 +9,10 @@ export default{
             required: true,
             type: Number,
         },
+        pageSize: {
+            type:Number,
+            default:6
+        }
  
     },
     data() {

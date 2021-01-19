@@ -7,8 +7,9 @@ export default {
   },
   data() {
     return {
-        total: 10,
-        page: 1,
+      total: 10,
+      page: 1,
+      pageSize: 6,
       newsList: [
         {
           title: "旅游过程中我们需要到注意到什么？",
@@ -74,34 +75,34 @@ export default {
           id: "9"
         }
       ],
-      pageList:[],
-      dataList:[],
-      flag:true
+      pageList: [],
+      dataList: [],
+      flag: true
     };
   },
   created() {
-      this.fetchData();
-      this.cutDataList();
+    this.fetchData();
+    this.cutDataList();
   },
   methods: {
-      //切分数据
-      cutDataList(){
-          const length = Math.ceil(this.newsList.length/6);
-          for(var i = 0; i < length; i++){
-            this.pageList.push(this.newsList.splice(0,6));
-          }
-          this.dataList = this.pageList[0];
-          console.log(this.pageList,this.dataList);
-      },
-      //获取数据
-      fetchData(){
-          this.total = this.newsList.length;
-      },
-      //切换数据
-      changePage(val){
-          console.log('1111111');
-        this.dataList = this.pageList[val-1]; 
-        console.log(val);
+    //切分数据
+    cutDataList() {
+      const length = Math.ceil(this.newsList.length / this.pageSize);
+      for (var i = 0; i < length; i++) {
+        this.pageList.push(this.newsList.splice(0, this.pageSize));
       }
-  },
+      this.dataList = this.pageList[0];
+      console.log(this.pageList, this.dataList);
+    },
+    //获取数据
+    fetchData() {
+      this.total = this.newsList.length;
+    },
+    //切换数据
+    changePage(val) {
+      console.log("1111111");
+      this.dataList = this.pageList[val - 1];
+      console.log(val);
+    }
+  }
 };

@@ -7,8 +7,9 @@ export default {
   },
   data() {
     return {
-      total: 10,
+      total: 1,
       page: 1,
+      pageSize: 4,
       domesticList: [
         {
           id: '1',
@@ -18,7 +19,20 @@ export default {
           linkId: "hk001",
           sales: "9999",
           satisfaction: "97%",
-          score: "4.7",
+          score: 4.7,
+          trip: "两日半自助游",
+          originalPrice: "￥2096",
+          presentPrice: "￥1099"
+        },
+        {
+          id: '7',
+          imgUrl: `${imgBaseUrl}siguniangshan.jpg`,
+          title: "四姑娘山2日半自助游",
+          characteristic: "看雪山",
+          linkId: "hk001",
+          sales: "9999",
+          satisfaction: "97%",
+          score: 4.7,
           trip: "两日半自助游",
           originalPrice: "￥2096",
           presentPrice: "￥1099"
@@ -31,7 +45,7 @@ export default {
           linkId: "hk001",
           sales: "9999",
           Satisfaction: "97%",
-          score: "4.7",
+          score: 4.7,
           trip: "两日半自助游",
           originalPrice: "￥2096",
           presentPrice: "￥1099"
@@ -44,24 +58,12 @@ export default {
           linkId: "hk001",
           sales: "9999",
           Satisfaction: "97%",
-          score: "4.7",
+          score: 4.7,
           trip: "两日半自助游",
           originalPrice: "￥2096",
           presentPrice: "￥1099"
         },
-        {
-            id: "4",
-          imgUrl: "",
-          title: "香港3日半自助游",
-          characteristic: "港式早餐",
-          linkId: "hk001",
-          sales: "9999",
-          Satisfaction: "97%",
-          score: "4.7",
-          trip: "两日半自助游",
-          originalPrice: "￥2096",
-          presentPrice: "￥1099"
-        },
+       
         {
             id: "5",
           imgUrl: "",
@@ -70,7 +72,7 @@ export default {
           linkId: "hk001",
           sales: "9999",
           Satisfaction: "97%",
-          score: "4.7",
+          score: 4.7,
           trip: "两日半自助游",
           originalPrice: "￥2096",
           presentPrice: "￥1099"
@@ -83,7 +85,7 @@ export default {
           linkId: "hk001",
           sales: "9999",
           Satisfaction: "97%",
-          score: "4.7",
+          score: 4.7,
           trip: "两日半自助游",
           originalPrice: "￥2096",
           presentPrice: "￥1099"
@@ -101,9 +103,9 @@ export default {
   methods: {
     //切分数据
     cutDataList() {
-      const length = Math.ceil(this.domesticList.length / 6);
+      const length = Math.ceil(this.domesticList.length / this.pageSize);
       for (var i = 0; i < length; i++) {
-        this.pageList.push(this.domesticList.splice(0, 6));
+        this.pageList.push(this.domesticList.splice(0, this.pageSize));
       }
       this.dataList = this.pageList[0];
       console.log(this.pageList, this.dataList);

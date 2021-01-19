@@ -9,49 +9,33 @@
         @select="handleSelect"
         background-color="rgba(0,0,0,0)"
         text-color="white"
+        active-text-color="#007acc"
+        router
       >
-        <el-menu-item index="1">
-          <router-link to="/"><div>首页</div></router-link></el-menu-item
-        >
-        <el-menu-item index="2"
-          ><router-link to="/about"
-            ><div>关于我们</div></router-link
-          ></el-menu-item
-        >
-        <el-menu-item index="3"
-          ><router-link to="/news"
-            ><div>新闻资讯</div></router-link
-          ></el-menu-item
-        >
-        <el-submenu index="4">
+        <el-menu-item :index="'/'"> 首页</el-menu-item>
+        <el-menu-item :index="'/about'">
+          关于我们
+        </el-menu-item>
+        <el-menu-item :index="'/news'">
+          新闻资讯
+        </el-menu-item>
+        <el-submenu :index="'/theme'">
           <template slot="title">主题旅游</template>
-          <el-menu-item index="4-1"
-            ><router-link to="/domestic">境内游</router-link></el-menu-item
-          >
-          <el-menu-item index="4-2"
-            ><router-link to="/overseas">境外游</router-link></el-menu-item
-          >
+          <el-menu-item :index="'/theme/domestic'">境内游</el-menu-item>
+          <el-menu-item :index="'/theme/overseas'">境外游</el-menu-item>
         </el-submenu>
-        <el-submenu index="5">
+        <el-submenu :index="'/hot'">
           <template slot="title">热门景点</template>
-          <el-menu-item index="5-1"
-            ><router-link to="/yunnan"
-              ><div>云南</div></router-link
-            ></el-menu-item
-          >
-          <el-menu-item index="5-2"
-            ><router-link to="/chongqing"
-              ><div>重庆</div></router-link
-            ></el-menu-item
-          >
-          <el-menu-item index="5-3"
-            ><router-link to="/sichuan"
-              ><div>四川</div></router-link
-            ></el-menu-item
-          >
+          <el-menu-item :index="'/hot/yunnan'">
+            云南
+          </el-menu-item>
+          <el-menu-item :index="'/hot/chongqing'"> 重庆</el-menu-item>
+          <el-menu-item :index="'/hot/sichuan'">
+            四川
+          </el-menu-item>
         </el-submenu>
-        <el-menu-item index="6">
-          <router-link to="/hotel"><div>酒店</div></router-link>
+        <el-menu-item :index="'/hotel'">
+          酒店
         </el-menu-item>
       </el-menu>
     </div>
@@ -84,8 +68,8 @@ export default {
   methods: {
     handleSelect(key, keyPath) {},
     initActive() {
-      this.activeIndex = "1";
-      this.$router.push("/");
+      this.activeIndex = "4";
+      this.$router.push("/theme/domestic");
     }
   }
 };
@@ -126,15 +110,9 @@ export default {
         padding: 0;
       }
       li {
-        > a {
-          text-decoration: none;
-          text-align: center;
-          > div {
-            height: 60px;
-            width: 80px;
-            padding: 0 20px;
-          }
-        }
+        width: 100px;
+        margin-left: 20px;
+        text-align: center;
       }
     }
   }

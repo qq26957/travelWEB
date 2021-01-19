@@ -4,7 +4,7 @@
       background
       @current-change="handleCurrentChange"
       :current-page.sync="currentPage"
-      :page-size="6"
+      :page-size="pageSize"
       layout="total, prev, pager, next"
       :total="total"
     >
