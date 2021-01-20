@@ -23,16 +23,18 @@
         </div>
         <div>
           <ul class="choose">
-            <li><router-link to="/hotel/single">单人间</router-link></li>
-            <li><router-link to="/hotel/double">双人间</router-link></li>
-            <li><router-link to="/hotel/suite">总统套房</router-link></li>
+            <el-radio-group v-model="type" @change="change">
+              <el-radio :label="'single'">单人间</el-radio>
+              <el-radio :label="'double'">双人间</el-radio>
+              <el-radio :label="'suite'">总统套房</el-radio>
+            </el-radio-group>
           </ul>
         </div>
         <div class="bottom">
           <div class="bottom-left">
-            <div>
-              <router-view> </router-view>
-            </div>
+            <div v-show="type === 'single'"></div>
+            <div v-show="type === 'double'"></div>
+            <div v-show="type === 'suite'"></div>
             <div class="content-pagenation">
               <pagenation
                 :total="total"

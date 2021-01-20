@@ -10,9 +10,6 @@ import hotel from '@/components/hotel/hotel.vue'
 import sichuan from '@/components/sichuan/sichuan.vue'
 import chongqing from '@/components/chongqing/chongqing.vue'
 import yunnan from '@/components/yunnan/yunnan.vue'
-import single from '@/components/hotel/single/single.vue'
-import suite from '@/components/hotel/suite/suite.vue'
-import double from '@/components/hotel/double/double.vue'
  Vue.use(Router)
 
 export default new Router({
@@ -45,24 +42,7 @@ export default new Router({
     {
       path: '/hotel',
       name: 'hotel',
-      component: hotel,
-      children: [
-        {
-          path:'single',
-          name: 'single',
-          component:single
-        },
-        {
-          path:'double',
-          name: 'double',
-          component: double
-        },
-        {
-          path: 'suite',
-          name: 'suite',
-          component: suite
-        }
-      ]
+      component: hotel
     },
     {
       path: '/hot/sichuan',

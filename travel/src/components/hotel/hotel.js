@@ -1,11 +1,20 @@
+
 export default{
     name:'hotel',
+    components:{
+      single,
+      double,
+      suite
+    },
     data() {
         return {
             type:'single',
             total: 10,
             page: 1,
             pageSize: 6,
+            hotelList:[],
+            pageList:[]
+
         }
     },
     created() {
@@ -13,22 +22,25 @@ export default{
         this.cutDataList();
     },
     methods: {
+        //变换单选
+        change(label){
+          console.log(label);
+        },
         //切分数据
         cutDataList() {
-          const length = Math.ceil(this.newsList.length / this.pageSize);
+          const length = Math.ceil(this.hotelList.length / this.pageSize);
           for (var i = 0; i < length; i++) {
-            this.pageList.push(this.newsList.splice(0, this.pageSize));
+            this.pageList.push(this.hotelList.splice(0, this.pageSize));
           }
           this.dataList = this.pageList[0];
           console.log(this.pageList, this.dataList);
         },
         //获取数据
         fetchData() {
-          this.total = this.newsList.length;
+          this.total = this.hotelList.length;
         },
         //切换数据
         changePage(val) {
-          console.log("1111111");
           this.dataList = this.pageList[val - 1];
           console.log(val);
         }
