@@ -1,5 +1,16 @@
 <template>
   <div class="home">
+    <div class="home-slider">
+      <div class="login">
+        登录
+      </div>
+      <div class="top">
+          TOP⇧
+      </div>
+      <div class="weixin">
+        <img src="" alt="">
+      </div>
+    </div>
     <div class="home-swiper">
       <el-carousel height="700px" @change="swiperChange">
         <el-carousel-item v-for="item in imgList" :key="item.url">
@@ -9,8 +20,6 @@
             class="home-swiper-img"
             style="height:800px; width:100%"
           />
-          <h1>{{ item.url }}</h1>
-          <img src="../../assets/img/5.jpg" alt="" />
         </el-carousel-item>
       </el-carousel>
       <div class="home-swiper-num">
@@ -68,9 +77,9 @@
             [2]</span
           >
         </div>
-        <div class="jiantou2"><img src="/static/img/jiantou.png" alt="" /></div>
+        <div class="jiantou2"><img src="/static/img/home/jiantou.png" alt="" /></div>
         <div class="showImg">
-          <img src="/static/img/cdgaoxinqu.jpg" alt="" />
+          <img src="/static/img/home/cdgaoxinqu.jpg" alt="" />
           <div class="mengban2"></div>
         </div>
       </div>
@@ -91,29 +100,57 @@
             :key="index"
           >
             <a href="#">
-               <div v-show="item.flag" class="current" :key="'current'">
-                  <img :src="item.imgUrl" alt="" class="background" />
+              <div v-show="item.flag" class="current" :key="'current'">
+                <img :src="item.imgUrl" alt="" class="background" />
                 <div class="center">
                   <h3>{{ item.text }}</h3>
                   <h1>{{ item.english }}</h1>
                   <button class="btn">查看更多</button>
                 </div>
               </div>
-                <div v-show="!item.flag" class="mengban" :key="'mengban'">
+              <div v-show="!item.flag" class="mengban" :key="'mengban'">
                 <img :src="item.imgUrl" alt="" class="background" />
                 <div class="background-color">
-                <div class="center">
-                  <img src="/static/img/ic1.png" alt="" />
-                  <h1 class="english">{{ item.english }}</h1>
-                  <h3 class="text">{{ item.text }}</h3>
+                  <div class="center">
+                    <img src="/static/img/home/home/ic1.png" alt="" />
+                    <h1 class="english">{{ item.english }}</h1>
+                    <h3 class="text">{{ item.text }}</h3>
+                  </div>
                 </div>
-              </div>
               </div>
             </a>
           </li>
         </template>
       </ul>
     </div>
+    <div class="home-news">
+      <div class="title">
+        <div class="center">
+          <h3>新闻资讯</h3>
+          <h1>News information</h1>
+          <h1>—</h1>
+        </div>
+      </div>
+      <div class="swiper">
+        <el-carousel :interval="4000" type="card" height="500px">
+          <el-carousel-item
+            v-for="item in newsList"
+            :key="item.name"
+            class="swiper-item"
+          >
+            <div class="swiper-item-content">
+              <img :src="item.url" alt="" class="news-img" />
+              <div class="description">
+                <h4 class="description-title">{{ item.title }}</h4>
+                <div class="description-text">{{ item.text }}</div>
+                <div class="description-time">{{ item.time }}</div>
+              </div>
+            </div>
+          </el-carousel-item>
+        </el-carousel>
+      </div>
+    </div>
+   
   </div>
 </template>
 

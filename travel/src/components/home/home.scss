@@ -6,23 +6,28 @@ body{
   margin: 0;
   padding: 0;
 }
-.el-carousel__item h3 {
-  color: #475669;
-  font-size: 14px;
-  opacity: 0.75;
-  line-height: 150px;
-  margin: 0;
-}
-
-.el-carousel__item:nth-child(2n) {
-  background-color: #99a9bf;
-}
-
-.el-carousel__item:nth-child(2n+1) {
-  background-color: #d3dce6;
-}
-
 .home {
+  position: relative;
+  &-slider{
+    position: fixed;
+    z-index: 999;
+    top: 450px;
+    right: 5px;
+    width: 60px;
+    background-color: rgba(255, 255, 255, 0.8);
+    display: grid;
+    grid-template-rows: 60px 60px 60px; 
+    text-align: center;
+  
+    line-height: 60px;
+    .weixin >img{
+      width: 60px;
+      height: 60px;
+    }
+    >div{
+      border-bottom: 1px solid red;
+    }
+  }
   &-swiper {
     &-img {
       width: 100%;
@@ -57,7 +62,7 @@ body{
     height: 700px;
     display: flex;
     justify-content: center;
-    background: url("/static/img/s1bg.jpg") no-repeat top left;
+    background: url("/static/img/home/s1bg.jpg") no-repeat top left;
     background-color: rgb(9, 11, 15);
     background-size: 100% 100%;
 
@@ -171,7 +176,7 @@ body{
   }
 
   &-about {
-    background: url("/static/img/s2bg.jpg") no-repeat top left;
+    background: url("/static/img/home/s2bg.jpg") no-repeat top left;
     background-size: 100% 100%;
     width: 100%;
     height: 1000px;
@@ -199,7 +204,6 @@ body{
       .jiantou2 {
         padding: 40px 0 40px;
         animation: upAndDown 1s infinite alternate;
-
       }
 
       .showImg {
@@ -229,8 +233,7 @@ body{
   &-theme {
     position: relative;
     width: 100%;
-    height: 1600px;
-
+    height: 3450px;
     .title {
       width: 100%;
       height: 250px;
@@ -254,13 +257,17 @@ body{
       height: 800px;
       width: 100%;
       color: white;
-      
+      >li{
+        height: 800px;
+      }
       .mengban {
         position: relative;
         color: white;
         width: 100%;
+        height: 100%;
         .background{
           width: 100%;
+          height: 100%;
           animation: suoxiao .5s linear forwards;
         }
         .background-color {
@@ -286,8 +293,10 @@ body{
         color: white;
         overflow: hidden;
         width: 100%;
+        height: 100%;
         .background{
           width: 100%;
+          height: 100%;
           animation: fangda .5s linear forwards;
         }
         .center {
@@ -314,6 +323,7 @@ body{
         position: absolute;
         left: 50%;
         top: 0;
+        z-index: 5;
         content: "";
         width: 1px;
         height: 150px;
@@ -326,6 +336,7 @@ body{
         content: "";
         width: 1px;
         height: 150px;
+        z-index: 5;
         background-color: white;
       }
     }
@@ -340,6 +351,74 @@ body{
     width: 1px;
     height: 90px;
   }
+  &-news{
+    width: 100%;
+    height: 800px;
+    background: url("/static/img/home/s3bg.jpg") no-repeat top left;
+    .title {
+      width: 100%;
+      height: 250px;
+      display: flex;
+      justify-content: center;
+      position: relative;
+      .center {
+        position: absolute;
+        top: 105px;
+        text-align: center;
+        color: rgb(0, 172, 250);
+        >h3 {
+          color: white;
+          line-height: 30px;
+        }
+      }
+    }
+    .swiper{
+      width: 1300px;
+      margin: 0 auto;
+      /deep/ .el-carousel__arrow{
+        width: 75px;
+        height: 75px;
+        font-size: 35px;
+      }
+      /deep/ .el-carousel__mask{
+        background-color: rgba($color: #000000, $alpha: 0);
+      }
+      .el-carousel__item{
+        background-color: rgba($color: #000000, $alpha: 0);
+      }
+      .swiper-item{
+          &-content{
+            width: 100%;
+            height: 100%;
+            position: relative;
+            .news-img{
+              width: 100%;
+              height: 80%;
+            }
+            .description{
+              position: absolute;
+              bottom: 30px;
+              width: 70%;
+              height: 30%;
+              left: 15%;
+              background-color: white;
+              padding: 20px;
+              color: rgb(128, 128, 128);
+              >h4{
+                border-bottom: 1px solid red;
+                color: rgb(23, 179, 250);
+              }
+            }
+          }
+          &-content:hover{ 
+            transform: scale(1.1);
+            transition: all .5s ease;
+          }
+      }
+     
+    }
+  }
+  
 }
 @keyframes fangda{
   0%{
