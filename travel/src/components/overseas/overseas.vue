@@ -1,6 +1,6 @@
 <template>
   <div class="overseas">
-    <div class="overseas-img"><img src="/static/img/overseas/b1.jpg" alt="" /></div>
+    <div class="overseas-img"><img src="/static/img/background/bg4.jpg" alt="" /></div>
     <div class="overseas-content">
       <div class="background">
         <div class="title">

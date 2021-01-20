@@ -1,6 +1,6 @@
 <template>
   <div class="domestic">
-    <div class="domestic-img"><img src="/static/img/domestic/b1.jpg" alt="" /></div>
+    <div class="domestic-img"><img src="/static/img/background/bg3.jpg" alt="" /></div>
     <div class="domestic-content">
       <div class="background">
         <div class="title">

@@ -1,0 +1,19 @@
+{
+  "name": "travelweb",
+  "version": "1.0.0",
+  "description": "旅游",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/qq26957/travelWEB.git"
+  },
+  "author": "dhq",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/qq26957/travelWEB/issues"
+  },
+  "homepage": "https://github.com/qq26957/travelWEB#readme"
+}

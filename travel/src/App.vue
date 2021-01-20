@@ -9,7 +9,7 @@
         @select="handleSelect"
         background-color="rgba(0,0,0,0)"
         text-color="white"
-        active-text-color="#007acc"
+        active-text-color= "red"
         router
       >
         <el-menu-item :index="'/'"> 首页</el-menu-item>

@@ -32,7 +32,27 @@
         </div>
         <div class="bottom">
           <div class="bottom-left">
-            <div v-show="type === 'single'"></div>
+            <div v-show="type === 'single'">
+              <ul class="single content">
+                <li
+                  class="single-item item"
+                  v-for="(item, index) in dataList"
+                  :key="index"
+                >
+                  <div class="item-img"><img :src="item.imgUrl" alt="" /></div>
+                  <div class="item-text">
+                    <h3 class="item-text-title">{{ item.title }}</h3>
+                    <div class="item-text-gang"></div>
+                    <div class="item-text-content">{{ item.content }}</div>
+                    <div class="item-text-price">
+                      <span class="item-text-price-original"
+                        >原价：{{ item.originalPrice }}</span>
+                      <span class="item-text-price-present">{{ item.presentPrice }}</span>
+                    </div>
+                  </div>
+                </li>
+              </ul>
+            </div>
             <div v-show="type === 'double'"></div>
             <div v-show="type === 'suite'"></div>
             <div class="content-pagenation">
