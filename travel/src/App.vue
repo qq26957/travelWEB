@@ -111,7 +111,6 @@ export default {
       }
       li {
         width: 100px;
-        margin-left: 20px;
         text-align: center;
       }
     }
