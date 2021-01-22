@@ -68,8 +68,8 @@ export default {
   methods: {
     handleSelect(key, keyPath) {},
     initActive() {
-      this.activeIndex = "4";
-      this.$router.push("/theme/domestic");
+      this.activeIndex = "1";
+      this.$router.push("/");
     }
   }
 };

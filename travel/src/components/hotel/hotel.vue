@@ -1,6 +1,6 @@
 <template>
   <div class="hotel">
-    <div class="hotel-img"><img src="/static/img/hotel/b1.jpg" alt="" /></div>
+    <div class="hotel-img"><img src="/static/img/background/bg5.jpg" alt="" /></div>
     <div class="hotel-content">
       <div class="background">
         <div class="title">

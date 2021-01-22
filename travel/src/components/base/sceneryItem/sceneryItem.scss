@@ -1,0 +1,80 @@
+.scenery{
+    &-content{
+        display: grid;
+        grid-template-columns: repeat(3 , 33.3%);
+        margin-left: 0;
+        padding: 0;
+        &-item{
+            padding: 10px 10px 20px;
+            list-style: none;
+            position: relative;
+            line-height: 28px;
+            height: 400px;
+            .img{
+                width: 100%;
+                height: 62.5%;
+                >img{
+                    width: 100%;
+                    height: 100%;
+                }
+            }
+            .price{
+                position: absolute;
+                top: 50%;
+                background-color: #49a9e6;
+                width: 65px;
+                text-align: center;
+                color: rgba(231, 25, 70, 0.767);
+            }
+            .label{
+                font-weight: 600;
+            }
+            .mengban{
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                position: absolute;
+                top: 0;
+                left: 0;
+                visibility: hidden;
+                width: 100%;
+                height: 100%;
+                background-color: rgba($color: #615959, $alpha: 0.6);
+                &-center{
+                    text-align: center;
+                    line-height: 26px;
+                    margin: 0;
+                    font-weight: 600;
+                    color: white;
+                    .gang{
+                        line-height: 20px;
+                    }
+                    >img{
+                        width: 38px;
+                        height: 38px;
+                        animation: upAndDown 2s infinite alternate;
+                    }
+                }
+            }
+        }
+        &-item:hover{
+            box-shadow: 5px 5px 10px #007acc;
+            transform: scale(0.98);
+            transition: all .2s linear;
+        }
+        &-item:hover .mengban{
+            visibility: visible;
+        }
+    }
+}
+@keyframes upAndDown{
+    0%{
+        transform: translateY(-5px);
+    }
+    50%{
+        transform: translateY(7px);
+    }
+    100%{
+        transition: translateY(0px);
+    }
+}

@@ -3,7 +3,7 @@
     padding: 0;
   }
   
-  .hotel {
+  .hot {
     width: 100%;
   
     &-img {
@@ -68,6 +68,12 @@
               >span{
                 font-size: 26px;
               }
+              a{
+                  text-decoration: none;
+              }
+              a:hover{
+                  color: rgb(212, 42, 176);
+              }
             }
           }
         }
@@ -79,69 +85,8 @@
           }
   
           .content {
-            line-height: 25px;
-            width: 100%;
-            margin-bottom: 40px;
-            display: grid;
-            grid-template-columns: 50% 50%;
-            grid-template-rows: repeat(auto-fill);
-              .item{
-                list-style: none;
-                padding: 10px 30px 20px;
-                border: 1px dotted red;
-                margin: 10px 10px;
-                height: 430px;
-                &-img{
-                  width: 100%;
-                  height: 230px;
-                  text-align: center;
-                  >img{
-                    width: 100%;
-                    height: 100%;
-                  }
-                }
-                &-text{
-                  margin-top: 20px;
-                  position: relative;
-                  &-title{
-                    width: 90%;
-                    border-bottom: 2px solid #6c7d8c;
-                    margin-bottom: 5px;
-                  }
-                  &-content{
-                    display: -webkit-box;
-                    -webkit-box-orient: vertical;
-                    -webkit-line-clamp: 3;
-                    overflow: hidden;
-                  }
-                  &-gang{
-                    width: 90px;
-                    height: 5px;
-                    background-color: #00acfa;
-                    position: absolute;
-                    z-index: 3;
-                    top: 24px;
-                  }
-                  
-                  &-price{
-                    margin-top: 5px;
-                    &-original {
-                      text-decoration: line-through;
-                    }
-    
-                    &-present {
-                      color: rgb(241, 86, 13);
-                      font-size: 26px;
-                    }
-                  }
-                }
-              }
-              .item:hover{
-                box-shadow: 10px 10px 10px #007acc;
-                transform: scale(0.98);
-                transition: all .2s linear;
-              }
-           
+                width: 100%;
+                margin: 0;
           }
           .choose-content >.content-pagenation{
               margin: 0 auto;
@@ -154,13 +99,14 @@
             background-color: rgb(0, 172, 250);
             color: rgb(51, 184, 244);
             position: relative;
+            overflow: hidden;
             >div {
               position: absolute;
               z-index: 0;
-              width: 400px;
+              width: 680px;
               transform: rotate(90deg);
-              top: 221px;
-              left: -128px;
+              top: 355px;
+              left: -250px;
             }
           }
         }
