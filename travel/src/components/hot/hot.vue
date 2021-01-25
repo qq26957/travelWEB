@@ -19,7 +19,9 @@
                 >首页</el-breadcrumb-item
               >
               <el-breadcrumb-item class="current">热门景点</el-breadcrumb-item>
-               <el-breadcrumb-item class="current">热门景点</el-breadcrumb-item>
+              <el-breadcrumb-item class="current">{{
+                spotName
+              }}</el-breadcrumb-item>
             </el-breadcrumb>
           </div>
         </div>
@@ -30,13 +32,13 @@
               <ul class="choose-tab">
                 <el-radio-group v-model="spot" @change="changelabel">
                   <el-radio :label="'sichuan'" class="choose-tab-item"
-                    ><router-link to="sichuan" >四川</router-link></el-radio
+                    ><router-link to="sichuan">四川</router-link></el-radio
                   >
                   <el-radio :label="'yunnan'" class="choose-tab-item"
-                    ><router-link to="yunnan"  >云南</router-link></el-radio
+                    ><router-link to="yunnan">云南</router-link></el-radio
                   >
                   <el-radio :label="'chongqing'" class="choose-tab-item"
-                    ><router-link to="chongqing" >重庆</router-link></el-radio
+                    ><router-link to="chongqing">重庆</router-link></el-radio
                   >
                 </el-radio-group>
               </ul>

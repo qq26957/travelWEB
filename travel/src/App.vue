@@ -57,18 +57,27 @@ export default {
   name: "App",
   data() {
     return {
-      activeIndex: "1"
+      activeIndex: "/"
     };
   },
   computed: {},
+  watch : {
+    $route:{
+      handler(val,oldval){
+        this.activeIndex = val.path;
+      },
+      deep:true
+    }
+  },
   created() {
     this.initActive();
   },
 
   methods: {
-    handleSelect(key, keyPath) {},
+    handleSelect(key, keyPath) {
+
+    },
     initActive() {
-      this.activeIndex = "1";
       this.$router.push("/");
     }
   }
