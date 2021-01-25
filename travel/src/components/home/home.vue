@@ -41,7 +41,7 @@
             <div class="tiao"></div>
           </div>
         </li>
-        <li v-for="item in hotList" :key="item.name" class="home-hot-li-img">
+        <li v-for="item in hotList" :key="item.name" class="home-hot-li-img" @click="toDestinations(item.index)">
           <a><img :src="item.url" alt="" class="hot-img"/></a>
           <div class="home-hot-li-img-mengban">
             <div>

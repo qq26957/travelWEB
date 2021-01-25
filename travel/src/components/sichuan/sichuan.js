@@ -11,6 +11,7 @@ export default {
     return {
       dataList: [
         {
+          id:'1',
           imgUrl: `${imgBaseUrl}siguniangshan.jpg`,
           price: "1400￥",
           position: "四川",
@@ -19,6 +20,7 @@ export default {
           time: "上午8:00 ~~ 下午18:00"
         },
         {
+          id:'2',
           imgUrl: `${imgBaseUrl}siguniangshan.jpg`,
           price: "1400￥",
           position: "四川",
@@ -27,6 +29,7 @@ export default {
           time: "上午8:00 ~~ 下午18:00"
         },
         {
+          id:'3',
           imgUrl: `${imgBaseUrl}siguniangshan.jpg`,
           price: "14000￥",
           position: "四川",
@@ -35,6 +38,7 @@ export default {
           time: "上午8:00 ~~ 下午18:00"
         },
         {
+          id:'4',
           imgUrl: `${imgBaseUrl}siguniangshan.jpg`,
           price: "1400￥",
           position: "四川",
@@ -43,6 +47,7 @@ export default {
           time: "上午8:00 ~~ 下午18:00"
         },
         {
+          id:'5',
           imgUrl: `${imgBaseUrl}siguniangshan.jpg`,
           price: "1400￥",
           position: "四川",
@@ -51,6 +56,7 @@ export default {
           time: "上午8:00 ~~ 下午18:00"
         },
         {
+          id:'6',
           imgUrl: `${imgBaseUrl}siguniangshan.jpg`,
           price: "1400￥",
           position: "四川",
@@ -59,6 +65,7 @@ export default {
           time: "上午8:00 ~~ 下午18:00"
         },
         {
+          id:'7',
           imgUrl: `${imgBaseUrl}siguniangshan.jpg`,
           price: "1400￥",
           position: "四川",
@@ -67,6 +74,7 @@ export default {
           time: "上午8:00 ~~ 下午18:00"
         },
         {
+          id:'8',
           imgUrl: `${imgBaseUrl}siguniangshan.jpg`,
           price: "1400￥",
           position: "四川",
@@ -75,6 +83,7 @@ export default {
           time: "上午8:00 ~~ 下午18:00"
         },
         {
+          id:'9',
           imgUrl: `${imgBaseUrl}siguniangshan.jpg`,
           price: "1400￥",
           position: "四川",

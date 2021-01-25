@@ -12,9 +12,12 @@ export default{
         }
     },
     created() {
-
         console.log(this.$props.dataList);
     },
+    methods: {
+        toSpot(val){
+            this.$router.push("/hotAttractions");
 
-
+        }
+    },
 }

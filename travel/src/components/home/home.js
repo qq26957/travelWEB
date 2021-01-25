@@ -53,6 +53,10 @@ export default {
     },
     changeFlagL(index){
       this.recommendedList[index].flag = false;
+    },
+    //切换到热门景点
+    toDestinations(val){
+        this.$router.push("/hotAttractions");
     }
   },
 };

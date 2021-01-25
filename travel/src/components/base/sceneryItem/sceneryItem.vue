@@ -5,6 +5,7 @@
         v-for="(item, index) in dataList"
         :key="index"
         class="scenery-content-item"
+        @click="toSpot(item.index)"
       >
         <div class="img"><img :src="item.imgUrl" alt="" /></div>
         <div class="price">{{ item.price }}</div>
