@@ -1,14 +1,20 @@
 <template>
   <div class="home">
     <div class="home-slider">
+      <div>
       <div class="login">
+        <img src="/static/img/home/login.png" alt="登录">
         登录
       </div>
-      <div class="top">
-          TOP⇧
+      <div class="top" @click="toTop">
+          <img src="/static/img/home/toTop.png" alt="置顶">
+          TOP
       </div>
-      <div class="weixin">
-        <img src="" alt="">
+      <div class="contact" @mouseenter="weichartShow" @mouseleave="weichartShow">
+         <img src="/static/img/home/weichart.png" alt="微信">
+         联系
+         <img src="/static/img/home/weixin1.png" alt="" v-show="wxFlag" class="weixin"> 
+      </div>
       </div>
     </div>
     <div class="home-swiper">
@@ -30,8 +36,10 @@
     </div>
     <div class="home-hot">
       <ul class="home-hot-ul">
+       
         <li>
-          <div class="hot-text">
+           <transition name="flipInY" appear v-if="hotFlag">
+          <div class="hot-text" >
             <span>
               热门目的地
             </span>
@@ -40,8 +48,13 @@
             <br />
             <div class="tiao"></div>
           </div>
+           </transition>
         </li>
+         
+
         <li v-for="item in hotList" :key="item.name" class="home-hot-li-img" @click="toDestinations(item.index)">
+           <transition name="flipInY" appear v-if="hotFlag">
+             <div>
           <a><img :src="item.url" alt="" class="hot-img"/></a>
           <div class="home-hot-li-img-mengban">
             <div>
@@ -50,23 +63,29 @@
               <div class="gang"></div>
             </div>
           </div>
+          </div>
+            </transition>
         </li>
+       
         <li class="hot-more" @mouseenter="hover" @mouseleave="leave">
           <a
             ><div class="hot-more-white">
               <span>View more</span><br /><img :src="jiantou" alt="" /></div
           ></a>
         </li>
+      
       </ul>
     </div>
     <div class="home-about">
       <div class="home-about-center">
+        <transition appear name="lightSpeedInLeft" v-if="aboutFlag">
         <header class="home-about-center-header">
           <h3>关于我们</h3>
           <br />
           <h1>About us</h1>
           <h1>—</h1>
         </header>
+         </transition>
         <div class="content">
           <span
             >途牛旅游网于2006年10月创立于南京，以“让旅游更简单”为使命，为消费者提供由北京、天津、上海、广州、深圳、南京等64个城市出发的旅游产品预订服务，产品全面，价格透明，全年365天24小时400电话预订，并提供丰富的后续服务和保障。
@@ -86,11 +105,13 @@
     </div>
     <div class="home-theme">
       <header class="title">
+        <transition appear name="lightSpeedInLeft" v-if="themeTitleFlag"> 
         <div class="center">
           <h3 class="text">主题旅游</h3>
           <h1 class="chinese">Theme tourism</h1>
           <h1>—</h1>
         </div>
+         </transition>
       </header>
       <ul class="home-theme-content">
         <template v-for="(item, index) in recommendedList">
@@ -125,11 +146,13 @@
     </div>
     <div class="home-news">
       <div class="title">
+         <transition appear name="lightSpeedInLeft" v-if="newsFlag"> 
         <div class="center">
           <h3>新闻资讯</h3>
           <h1>News information</h1>
           <h1>—</h1>
         </div>
+         </transition>
       </div>
       <div class="swiper">
         <el-carousel :interval="4000" type="card" height="500px">

@@ -31,13 +31,38 @@ export default {
       ],
       jiantou:`${imgBaseUrl}jiantouh.png`,
       currentNum: 1,
+      themeTitleFlag:false,
       themeFlag: true,
+      wxFlag: false,
+      hotFlag:false,
+      aboutFlag: false,
+      newsFlag: false
     };
   },
   computed:{
- 
+    
+  },
+  mounted() {
+      window.addEventListener('scroll',this.watchScroll);
+  },
+  updated() {
   },
   methods: {
+    //监听屏幕滚动
+    watchScroll(){
+      if(window.pageYOffset > 200){
+        this.hotFlag = true;
+      }
+      if(window.pageYOffset > 850){
+        this.aboutFlag = true;
+      }
+      if(window.pageYOffset >1900){
+        this.themeTitleFlag = true;
+      }
+      if(window.pageYOffset > 5400){
+        this.newsFlag = true;
+      }
+    },
     swiperChange(pre){
       this.currentNum = pre+1;
     },
@@ -57,6 +82,16 @@ export default {
     //切换到热门景点
     toDestinations(val){
         this.$router.push("/hotAttractions");
+    },
+    //显示微信图标
+    weichartShow(){
+      this.wxFlag = !this.wxFlag;
+    },
+    toTop(){
+      this.$nextTick(() => {
+        window.scrollTo(0,0);
+        })
     }
+
   },
 };

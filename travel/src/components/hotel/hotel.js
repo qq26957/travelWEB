@@ -245,13 +245,23 @@ export default {
         originalPrice: "180￥",
         presentPrice: "150￥"
       }],
-      suitePageList: []
+      suitePageList: [],
+      titleFlag: false,
     };
   },
   created() {
     this.fetchData();
   },
+  mounted() {
+    window.addEventListener('scroll',this.animationIn)
+  },
   methods: {
+    //标题动画进入
+    animationIn(){
+      if(window.pageYOffset > 250){
+        this.titleFlag = true;
+      }
+    },
     //变换单选
     change(label) {
       console.log(label);

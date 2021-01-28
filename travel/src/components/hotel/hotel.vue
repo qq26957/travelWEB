@@ -4,8 +4,8 @@
     <div class="hotel-content">
       <div class="background">
         <div class="title">
-          <transition appear name="bounce">
-            <div class="title-text">
+          <transition appear name="bounce" >
+            <div class="title-text" v-if="titleFlag">
               <h1>酒店</h1>
               <h3>hotel Information</h3>
               <h1>—</h1>
