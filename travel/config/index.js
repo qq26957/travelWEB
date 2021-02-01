@@ -65,5 +65,16 @@ module.exports = {
     // `npm run build --report`
     // Set to `true` or `false` to always turn it on or off
     bundleAnalyzerReport: process.env.npm_config_report
+  },
+  proxyTable: {
+    '/api': {
+        target: 'http://localhost:8085', // 接口的域名
+        // secure: false,  // 如果是https接口，需要配置这个参数
+        changeOrigin: true, // 如果接口跨域，需要进行这个参数配置
+        // pathRewrite: {
+        //     '^/api': ''
+        // }
+    }
   }
-}
+  
+} 

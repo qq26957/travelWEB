@@ -108,7 +108,7 @@
                     <el-radio v-model="numbers" label="1">一人出行</el-radio>
                     <el-radio v-model="numbers" label="2">两人出行</el-radio>
                   </div>
-                  <div class="description-order-bt">
+                  <div class="description-order-bt" @click="toOrders">
                     立即预定
                   </div>
                 </div>
@@ -198,7 +198,7 @@
                           </div>
                           <div class="item">
                           <p>
-                            一般<span
+                            一般：<span
                               >({{ datas.evaluation.total.commonly }})</span
                             >
                           </p>
@@ -211,7 +211,7 @@
                           </div>
                           <div class="item">
                           <p>
-                            差评<span>({{ datas.evaluation.total.bad }})</span>
+                            差评：<span>({{ datas.evaluation.total.bad }})</span>
                           </p>
                           <el-progress
                             :text-inside="true"

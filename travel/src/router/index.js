@@ -12,6 +12,10 @@ import chongqing from "@/components/chongqing/chongqing.vue";
 import yunnan from "@/components/yunnan/yunnan.vue";
 import hot from "@/components/hot/hot.vue";
 import hotAttractions from "@/components/hotAttractions/hotAttractions.vue";
+import newsDetails from "@/components/newsDetails/newsDetails.vue";
+import login from "@/components/login/login.vue";
+import register from "@/components/register/register.vue";
+import orders from "@/components/orders/orders.vue"
 Vue.use(Router);
 
 export default new Router({
@@ -72,6 +76,26 @@ export default new Router({
       path: "/hotAttractions",
       name: "hotAttractions",
       component: hotAttractions
+    },
+    {
+      path: "/newsDetails",
+      name: "newsDetails",
+      component: newsDetails
+    },
+    {
+      path: "/login",
+      name: "login",
+      component: login
+    },
+    {
+      path: "/register",
+      name: "register",
+      component: register
+    },
+    {
+      path: "/orders",
+      name: "orders",
+      component: orders,
     }
   ]
 });

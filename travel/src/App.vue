@@ -44,7 +44,7 @@
       <h1>旅游景点</h1>
       <div class="lianjie">友情连接<i>☞☞☞</i></div>
       <div class="gang"></div>
-      <img src="" alt="" />
+      <img src="/static/img/home/weixin1.png" alt="" />
       <div>关于我们|广告服务|项目合作|法律声明|帮助中心</div>
       <div>本网站由XXXX设计实现 网站服务热线： 0817-9999999 QQ：2506494384</div>
       <div>京ICP：1234567备案</div>

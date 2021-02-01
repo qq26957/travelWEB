@@ -4,30 +4,30 @@ export default {
   data() {
     return {
       imgList: [
-        { url: `${imgBaseUrl}1.jpg`, name: "home1", index: 1 },
-        { url: `${imgBaseUrl}2.jpg`, name: "home2", index: 2 },
-        { url: `${imgBaseUrl}3.jpg`, name: "home3", index: 3 }
+        { imgUrl: `${imgBaseUrl}1.jpg`, name: "home1", id: 1 },
+        { imgUrl: `${imgBaseUrl}2.jpg`, name: "home2", id: 2 },
+        { imgUrl: `${imgBaseUrl}3.jpg`, name: "home3", id: 3 }
       ],
       hotList:[
-        {url:`${imgBaseUrl}leshandafo.jpg`,name:"乐山大佛",english:"Buddha",index:1},
-        {url:`${imgBaseUrl}jiuzhaigou.jpg`,name:"九寨沟",english:"Jiuzhaigou",index:2},
-        {url:`${imgBaseUrl}hailuogou.jpg`,name:"海螺沟",english:"Conch'sditch",index:3},
-        {url:`${imgBaseUrl}yulongxueshan.jpg`,name:"玉龙雪山",english:"Snow Moutain",index:4},
-        {url:`${imgBaseUrl}daligucheng.jpg`,name:"大理古城",english:"Dali",dalindex:5},
-        {url:`${imgBaseUrl}erhai.jpg`,name:"洱海",english:"Erhai Laki",index:6}     
+        {imgUrl:`${imgBaseUrl}leshandafo.jpg`,name:"乐山大佛",english:"Buddha",id:1},
+        {imgUrl:`${imgBaseUrl}jiuzhaigou.jpg`,name:"九寨沟",english:"Jiuzhaigou",id:2},
+        {imgUrl:`${imgBaseUrl}hailuogou.jpg`,name:"海螺沟",english:"Conch'sditch",id:3},
+        {imgUrl:`${imgBaseUrl}yulongxueshan.jpg`,name:"玉龙雪山",english:"Snow Moutain",id:4},
+        {imgUrl:`${imgBaseUrl}daligucheng.jpg`,name:"大理古城",english:"Dali",lid:5},
+        {imgUrl:`${imgBaseUrl}erhai.jpg`,name:"洱海",english:"Erhai Laki",id:6}     
       ],
       recommendedList:[
-        {imgUrl: `${imgBaseUrl}siguniangshan.jpg`,text:"四姑娘山",english:"Four girl mountain",flag:false,index:1},
-        {imgUrl: `${imgBaseUrl}hongyadong.jpg`,text:"洪崖洞",english:"HongYa hole",flag:false,index:2},
-        {imgUrl: `${imgBaseUrl}xianggelila.jpg`,text:"香格里拉",english:"Shangri-la",flag:false,index:3},
-        {imgUrl: `${imgBaseUrl}fushishan.jpg`,text:"富士山",english:"Mount Fuji",flag:false,index:4},
-      ],
+        {imgUrl: `${imgBaseUrl}siguniangshan.jpg`,name:"四姑娘山",english:"Four girl mountain",flag:false,id:1},
+        {imgUrl: `${imgBaseUrl}hongyadong.jpg`,name:"洪崖洞",english:"HongYa hole",flag:false,id:2},
+        {imgUrl: `${imgBaseUrl}xianggelila.jpg`,name:"香格里拉",english:"Shangri-la",flag:false,id:3},
+        {imgUrl: `${imgBaseUrl}fushishan.jpg`,name:"富士山",english:"Mount Fuji",flag:false,id:4},
+      ], 
       newsList:[
-        {url: `${imgBaseUrl}3.jpg`, name: "home1", index: 3 ,title:"题目",text:"text",time:"2021-1-13"},
-        {url: `${imgBaseUrl}3.jpg`, name: "home2", index: 3 ,title:"题目",text:"text",time:"2021-1-13"},
-        {url: `${imgBaseUrl}3.jpg`, name: "home3", index: 3 ,title:"题目",text:"text",time:"2021-1-13"},
-        {url: `${imgBaseUrl}3.jpg`, name: "home4", index: 3 ,title:"题目",text:"text",time:"2021-1-13"},
-        {url: `${imgBaseUrl}3.jpg`, name: "home5", index: 3 ,title:"题目",text:"text",time:"2021-1-13"}
+        {imgUrl: `${imgBaseUrl}3.jpg`, name: "home1", id: 3 ,title:"题目",text:"text",time:"2021-1-13"},
+        {imgUrl: `${imgBaseUrl}3.jpg`, name: "home2", id: 3 ,title:"题目",text:"text",time:"2021-1-13"},
+        {imgUrl: `${imgBaseUrl}3.jpg`, name: "home3", id: 3 ,title:"题目",text:"text",time:"2021-1-13"},
+        {imgUrl: `${imgBaseUrl}3.jpg`, name: "home4", id: 3 ,title:"题目",text:"text",time:"2021-1-13"},
+        {imgUrl: `${imgBaseUrl}3.jpg`, name: "home5", id: 3 ,title:"题目",text:"text",time:"2021-1-13"}
       ],
       jiantou:`${imgBaseUrl}jiantouh.png`,
       currentNum: 1,
@@ -87,11 +87,19 @@ export default {
     weichartShow(){
       this.wxFlag = !this.wxFlag;
     },
+    //置顶
     toTop(){
       this.$nextTick(() => {
         window.scrollTo(0,0);
         })
+    },
+    //查看新闻具体信息
+    toNewsDetails(val){
+      this.$router.push(`/newsDetails?index=${val}`);
+    },
+    //进入登录界面
+    toLogin(){
+      this.$router.push('/login');
     }
-
   },
 };

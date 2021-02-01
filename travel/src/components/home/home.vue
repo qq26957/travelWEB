@@ -2,7 +2,7 @@
   <div class="home">
     <div class="home-slider">
       <div>
-      <div class="login">
+      <div class="login" @click="toLogin">
         <img src="/static/img/home/login.png" alt="登录">
         登录
       </div>
@@ -19,9 +19,9 @@
     </div>
     <div class="home-swiper">
       <el-carousel height="700px" @change="swiperChange">
-        <el-carousel-item v-for="item in imgList" :key="item.url">
+        <el-carousel-item v-for="(item,index) in imgList" :key="index">
           <img
-            :src="item.url"
+            :src="item.imgUrl"
             alt=""
             class="home-swiper-img"
             style="height:800px; width:100%"
@@ -52,10 +52,10 @@
         </li>
          
 
-        <li v-for="item in hotList" :key="item.name" class="home-hot-li-img" @click="toDestinations(item.index)">
+        <li v-for="item in hotList" :key="item.name" class="home-hot-li-img" @click="toDestinations(item.id)">
            <transition name="flipInY" appear v-if="hotFlag">
              <div>
-          <a><img :src="item.url" alt="" class="hot-img"/></a>
+          <a><img :src="item.imgUrl" alt="" class="hot-img"/></a>
           <div class="home-hot-li-img-mengban">
             <div>
               <span class="chinese">{{ item.name }}</span>
@@ -124,7 +124,7 @@
               <div v-show="item.flag" class="current" :key="'current'">
                 <img :src="item.imgUrl" alt="" class="background" />
                 <div class="center">
-                  <h3>{{ item.text }}</h3>
+                  <h3>{{ item.name }}</h3>
                   <h1>{{ item.english }}</h1>
                   <button class="btn">查看更多</button>
                 </div>
@@ -157,12 +157,13 @@
       <div class="swiper">
         <el-carousel :interval="4000" type="card" height="500px">
           <el-carousel-item
-            v-for="item in newsList"
-            :key="item.name"
+            v-for="(item,index) in newsList"
+            :key="index"
             class="swiper-item"
+        
           >
-            <div class="swiper-item-content">
-              <img :src="item.url" alt="" class="news-img" />
+            <div class="swiper-item-content"     @click="toNewsDetails(item.id)">
+              <img :src="item.imgUrl" alt="" class="news-img" />
               <div class="description">
                 <h4 class="description-title">{{ item.title }}</h4>
                 <div class="description-text">{{ item.text }}</div>

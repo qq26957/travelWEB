@@ -103,6 +103,10 @@ export default {
       console.log("1111111");
       this.dataList = this.pageList[val - 1];
       console.log(val);
+    },
+    //进入新闻详细页面
+    toNewsDetails(val){
+      this.$router.push(`/newsDetails?index=${val}`);
     }
   }
 };

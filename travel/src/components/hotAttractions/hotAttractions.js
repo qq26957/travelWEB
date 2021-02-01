@@ -7,10 +7,9 @@ export default {
     return {
       numbers: 1,
       spotName: "四川",
-      activeName: 'zero',
+      activeName: "zero",
       datas: {
-        title:
-          `四姑娘山2日1晚跟团游:【指定住三钻酒店—云天度假酒店·拒绝入住脏乱差的农家乐】【长坪沟+双桥沟+猫鼻梁观景台 一次游玩 不留遗憾】【100%真纯玩，坚决不进任何寨子以及隐形店】三环内接至集合地点`,
+        title: `四姑娘山2日1晚跟团游:【指定住三钻酒店—云天度假酒店·拒绝入住脏乱差的农家乐】【长坪沟+双桥沟+猫鼻梁观景台 一次游玩 不留遗憾】【100%真纯玩，坚决不进任何寨子以及隐形店】三环内接至集合地点`,
         imgUrl: [
           `${imgBaseUrl}siguniangshan/show/s1.jpg`,
           `${imgBaseUrl}siguniangshan/show/s2.jpg`,
@@ -136,14 +135,14 @@ export default {
       refundProtection: {
         imgUrl: [`${imgBaseUrl}refundProtection/p1.png`]
       },
-      totalSatisfaction:{
+      totalSatisfaction: {
         satisfied: 0,
         commonly: 0,
         bad: 0,
         total: 0,
-        goodRate: 0,
+        goodRate: 0
       },
-      currentImg:1,
+      currentImg: 1
     };
   },
   created() {
@@ -175,13 +174,24 @@ export default {
   mounted() {},
   methods: {
     //总评价数据切换
-    changeEvaluation(){
-      const totalNum = this.datas.evaluation.total.satisfied + this.datas.evaluation.total.commonly + this.datas.evaluation.total.bad
-      this.totalSatisfaction.satisfied = (this.datas.evaluation.total.satisfied / totalNum * 100).toFixed(2)*1 ;
-      this.totalSatisfaction.commonly = (this.datas.evaluation.total.commonly /totalNum * 100).toFixed(2)*1;
-      this.totalSatisfaction.bad = (this.datas.evaluation.total.bad / totalNum *100).toFixed(2)*1 ;
+    changeEvaluation() {
+      const totalNum =
+        this.datas.evaluation.total.satisfied +
+        this.datas.evaluation.total.commonly +
+        this.datas.evaluation.total.bad;
+      this.totalSatisfaction.satisfied =
+        ((this.datas.evaluation.total.satisfied / totalNum) * 100).toFixed(2) *
+        1;
+      this.totalSatisfaction.commonly =
+        ((this.datas.evaluation.total.commonly / totalNum) * 100).toFixed(2) *
+        1;
+      this.totalSatisfaction.bad =
+        ((this.datas.evaluation.total.bad / totalNum) * 100).toFixed(2) * 1;
       this.totalSatisfaction.total = totalNum;
-      this.totalSatisfaction.goodRate = (this.datas.evaluation.total.satisfied / totalNum*100).toFixed(1) ;
+      this.totalSatisfaction.goodRate = (
+        (this.datas.evaluation.total.satisfied / totalNum) *
+        100
+      ).toFixed(1);
     },
     //变换单选
     changelabel(label) {
@@ -189,13 +199,24 @@ export default {
     },
     //获取数据
     fetchData() {},
+    //跳转到订单信息列表
+    toOrders() {
+      this.$router.push({
+        path: `/orders`,
+        query: {
+          id: this.datas.id,
+          title: this.datas.title,
+          startSpot: this.datas.startSpot
+        }
+      });
+    },
 
     // 初始化路由
     initRouter() {
       this.spot = this.$route.path.slice(5);
     },
     handleClick() {},
-    changeImg(val,pre){
+    changeImg(val, pre) {
       this.currentImg = val;
       this.$refs.carousel.setActiveItem(val);
     }
