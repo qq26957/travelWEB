@@ -36,16 +36,19 @@ export default {
       wxFlag: false,
       hotFlag:false,
       aboutFlag: false,
-      newsFlag: false
+      newsFlag: false,
+      //登录标注
+      loginFlag:false,
     };
   },
   computed:{
     
   },
+  created() {
+    this.checkLogin();
+  },
   mounted() {
       window.addEventListener('scroll',this.watchScroll);
-  },
-  updated() {
   },
   methods: {
     //监听屏幕滚动
@@ -100,6 +103,16 @@ export default {
     //进入登录界面
     toLogin(){
       this.$router.push('/login');
-    }
+    },
+    //验证是否登录
+    checkLogin(){
+      let flag =  Boolean(window.sessionStorage.getItem("loginFlag"));
+        this.loginFlag = flag;
+     console.log(typeof(flag));
+     },
+     //跳转到个人中心
+     toPersonal(){
+      this.$router.push("/personal");
+     }
   },
 };

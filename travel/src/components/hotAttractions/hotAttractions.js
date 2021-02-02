@@ -16,7 +16,8 @@ export default {
           `${imgBaseUrl}siguniangshan/show/s3.jpg`
         ],
         id: "s5431",
-        price: "￥3600",
+        price: 3500,
+        childPrice: 200,
         score: 4.8,
         startSpot: "成都",
         destination: `四姑娘山位于阿坝州小金县日隆镇境内，由四座连绵不断的山峰组成。四座山峰长年冰雪覆盖，犹如头披白纱姿容俊俏的四位少女，依次屹立在长坪沟和海子沟两道银河之上，四姑娘山由此得名。在距离日隆镇约20分钟车程的猫鼻梁，路边可看到四姑娘山四峰相连的壮丽景色，是拍照取景的好地方。
@@ -206,7 +207,9 @@ export default {
         query: {
           id: this.datas.id,
           title: this.datas.title,
-          startSpot: this.datas.startSpot
+          startSpot: this.datas.startSpot,
+          price: this.datas.price,
+          childPrice: this.datas.childPrice
         }
       });
     },

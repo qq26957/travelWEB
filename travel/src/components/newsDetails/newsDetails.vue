@@ -18,7 +18,7 @@
               <el-breadcrumb-item :to="{ path: '/' }" class="home"
                 >首页</el-breadcrumb-item
               >
-              <el-breadcrumb-item class="current">新闻资讯</el-breadcrumb-item>
+              <el-breadcrumb-item class="current" :to="{ path: '/news' }">新闻资讯</el-breadcrumb-item>
             </el-breadcrumb>
           </div>
         </div>

@@ -64,7 +64,7 @@
                   </div>
                   <div class="description-title-price">
                     <span class="text">随心价： </span
-                    ><span class="description-title-price-num">{{
+                    ><span class="description-title-price-num">￥{{
                       datas.price
                     }}</span>
                   </div>
