@@ -1,0 +1,274 @@
+.personal {
+  position: relative;
+  background-color: rgb(61, 55, 55);
+
+  &-background {
+    width: 100%;
+    height: 2000px;
+
+    >img {
+      width: 100%;
+      height: 2000px;
+      -webkit-filter: blur(6px);
+      /* Chrome, Safari, Opera */
+      filter: blur(6px);
+    }
+  }
+
+  &-content {
+    position: absolute;
+    top: 100px;
+    width: 80%;
+    margin: 0 10%;
+    background-color: rgb(255, 255, 255);
+    border-radius: 20px ;
+    .el-tabs__item div {
+      font-size: 20px;
+      font-weight: 500;
+      color: rgb(255, 255, 255);
+      width: 140px;
+      img {
+        position: absolute;
+        margin-right: 20px;
+        top: 22px;
+        left: 15px;
+      }
+    }
+   
+    .tab-item-content {
+      color: black;
+      width: 80%;
+
+      .order-li {
+        list-style: none;
+        border: 2px solid rgb(156, 187, 192);
+        width: 109%;
+        margin: 20px 10px;
+        padding: 0px 0px 50px;
+        border-radius: 10px;
+
+        &-header {
+          background-color: rgb(229, 236, 221);
+          height: 50px;
+          line-height: 50px;
+          padding-left: 20px;
+          border-radius: 5px;
+
+          .order-id {
+            color: rgb(56, 103, 204);
+          }
+
+        }
+
+        &-content {
+          position: relative;
+
+          &-title {
+            font-size: 20px;
+            font-weight: 700;
+            padding: 5px 30px;
+            margin-bottom: 0;
+            width: 75%;
+          }
+
+          &-time {
+            font-size: 12px;
+            padding-left: 23px;
+          }
+
+          &-price {
+            position: absolute;
+            right: 10px;
+            top: 5px;
+
+            font-weight: 500;
+
+            &-num {
+              color: rgb(229, 103, 0);
+              margin-right: 10px;
+              font-weight: 600;
+              font-size: 18px;
+            }
+
+            &-text {
+              margin-left: 10px;
+              color: rgb(102, 102, 102);
+
+            }
+          }
+
+          &-details {
+            position: absolute;
+            border: 2px solid rgb(6, 128, 241);
+            width: 100px;
+            text-align: center;
+            line-height: 30px;
+            border-radius: 5px;
+            color: rgb(6, 128, 241);
+            right: 1%;
+            bottom: -30px;
+          }
+
+          &-pay {
+            position: absolute;
+            border: 2px solid rgb(221, 158, 23);
+            width: 100px;
+            text-align: center;
+            line-height: 30px;
+            border-radius: 5px;
+            color: rgb(221, 158, 23);
+            right: 15%;
+            bottom: -30px;
+          }
+
+          &-evaluated {
+            position: absolute;
+            border: 2px solid rgb(14, 122, 11);
+            width: 100px;
+            text-align: center;
+            line-height: 30px;
+            border-radius: 5px;
+            color: rgb(23, 119, 31);
+            right: 15%;
+            bottom: -30px;
+          }
+
+          &-delate {
+            position: absolute;
+            border: 2px solid rgb(179, 8, 65);
+            width: 100px;
+            text-align: center;
+            line-height: 30px;
+            border-radius: 5px;
+            color: rgb(179, 8, 65);
+            right: 15%;
+            bottom: -30px;
+          }
+        }
+      }
+    }
+    .tab-item-content2{
+        width: 100%;
+        &-message{
+          &-title{
+              width: 1070px;
+              background-color: rgb(244, 248, 253);
+              border: 1px solid rgb(202, 209, 218);
+              height: 30px;
+              line-height: 30px;
+              padding-left: 30px;
+          }
+          &-content{
+            list-style: none;
+            width: 60%;
+            margin: 50px 150px;
+
+            >li{
+                height: 40px;
+                .label{
+                    font-weight: 600;
+                }
+                .bt{
+                    height: 30px;
+                    line-height: 30px;
+                    width: 80px;
+                    border: solid 2px rgb(17, 88, 194);
+                    text-align: center;
+                    border-radius: 5px;
+                    color: rgb(6, 128, 241);
+                }
+            }
+          }
+        }
+        &-header{
+            &-title{
+                width: 1070px;
+                background-color: rgb(244, 248, 253);
+                border: 1px solid rgb(202, 209, 218);
+                height: 30px;
+                line-height: 30px;
+                padding-left: 30px;
+            }
+            &-warning{
+                padding: 20px;
+                .warning{
+                    background-color: yellow;
+                    padding: 0 5px;
+                    margin-right: 20px;
+                }
+            }
+           &-upload{
+               border: dashed 2px gray;
+               width: 178px;
+               height: 178px;
+               margin-left: 170px;
+           }
+           &-bt{
+               margin-left: 170px;
+               margin-top: 30px;
+               padding: 0;
+               .bt{
+                display: inline-block;
+                height: 30px;
+                line-height: 30px;
+                width: 80px;
+                border: solid 2px rgb(17, 88, 194);
+                text-align: center;
+                border-radius: 5px;
+                color: rgb(6, 128, 241);
+               }
+               >img{
+                   margin-left: 30px;
+                   width: 20px;
+                   height: 20px;
+                   vertical-align: middle;
+               }
+               >span{
+                   font-size: 14px;
+               }
+           }
+
+        }
+    }
+    .avatar-uploader .el-upload {
+        border: 1px dashed #d9d9d9;
+        border-radius: 6px;
+        cursor: pointer;
+        position: relative;
+        overflow: hidden;
+      }
+      .avatar-uploader .el-upload:hover {
+        border-color: #409EFF;
+      }
+      .avatar-uploader-icon {
+        font-size: 28px;
+        color: #8c939d;
+        width: 178px;
+        height: 178px;
+        line-height: 178px;
+        text-align: center;
+      }
+      .avatar {
+        width: 178px;
+        height: 178px;
+        display: block;
+      }
+    /ddep/ .el-tabs__active-bar{
+        width: 4px;
+    }
+    /deep/ .el-tabs__content {
+      padding: 20px;
+      margin: 0px;
+    }
+
+    /deep/ .el-tabs__item {
+      height: 80px;
+      line-height: 80px;
+    }
+
+    /deep/ .el-tabs__nav-scroll {
+      background-color: rgb(156, 187, 192);
+      border-radius: 20px 0 0 20px;
+    }
+  }
+}

@@ -16,6 +16,7 @@ import newsDetails from "@/components/newsDetails/newsDetails.vue";
 import login from "@/components/login/login.vue";
 import register from "@/components/register/register.vue";
 import orders from "@/components/orders/orders.vue"
+import personal from "@/components/personal/personal.vue"
 Vue.use(Router);
 
 export default new Router({
@@ -96,6 +97,11 @@ export default new Router({
       path: "/orders",
       name: "orders",
       component: orders,
+    },
+    {
+      path: "/personal",
+      name: "personal",
+      component: personal,
     }
   ]
 });

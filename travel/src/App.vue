@@ -71,7 +71,7 @@ export default {
   },
   created() {
     this.initActive();
-    window.sessionStorage["loginFlag"] = false;
+    window.sessionStorage["loginFlag"] = true;
     this.checkLogin();
   },
 
