@@ -105,7 +105,7 @@
             line-height: 30px;
             border-radius: 5px;
             color: rgb(6, 128, 241);
-            right: 1%;
+            right: 20px;
             bottom: -30px;
           }
 
@@ -117,7 +117,7 @@
             line-height: 30px;
             border-radius: 5px;
             color: rgb(221, 158, 23);
-            right: 15%;
+            right: 130px;
             bottom: -30px;
           }
 
@@ -129,7 +129,7 @@
             line-height: 30px;
             border-radius: 5px;
             color: rgb(23, 119, 31);
-            right: 15%;
+            right: 130px;
             bottom: -30px;
           }
 
@@ -141,7 +141,7 @@
             line-height: 30px;
             border-radius: 5px;
             color: rgb(179, 8, 65);
-            right: 15%;
+            right: 130px;
             bottom: -30px;
           }
         }
@@ -177,6 +177,21 @@
                     border-radius: 5px;
                     color: rgb(6, 128, 241);
                 }
+            }
+          }
+          &-edit{
+            width: 60%;
+            padding: 30px;
+            display: flex;
+            justify-content: center;
+            .form{
+              
+              .notice{
+                background-color: yellow;
+              }
+              .bt-save{
+                margin-left: 100px;
+              }
             }
           }
         }
@@ -229,6 +244,20 @@
            }
 
         }
+       
+    }
+    .tab-item-content3{
+      padding: 40px;
+      .bt-confirm{
+        height: 30px;
+        line-height: 30px;
+        width: 80px;
+        border: solid 2px rgb(242, 59, 13);
+        text-align: center;
+        border-radius: 15px;
+        color: rgb(242, 59, 13);
+        margin: 30px 170px;
+      }
     }
     .avatar-uploader .el-upload {
         border: 1px dashed #d9d9d9;
@@ -270,5 +299,8 @@
       background-color: rgb(156, 187, 192);
       border-radius: 20px 0 0 20px;
     }
+  }
+  /deep/ .el-form-item__label{
+    font-weight: 600;
   }
 }
