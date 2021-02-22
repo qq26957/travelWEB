@@ -148,7 +148,6 @@ export default {
   },
   created() {
     this.changeEvaluation();
-    console.log("进入详情页面");
   },
   watch: {
     $route: {

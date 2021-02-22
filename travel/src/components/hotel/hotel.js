@@ -264,7 +264,7 @@ export default {
     },
     //变换单选
     change(label) {
-      console.log(label);
+
     },
     cutAllList() {
       this.cutDataList(this.singleList, this.singlePageList, this.singlePage);
@@ -287,28 +287,22 @@ export default {
       this.doublePage.total = this.doubleList.length;
       this.suitePage.total = this.suiteList.length;
       this.cutAllList();
-      console.log(this.singlePageList,this.singleList);
       this.singleList = this.singlePageList[0];
       this.doubleList = this.doublePageList[0];
       this.suiteList = this.suitePageList[0];
-      console.log(this.singlePageList,this.singleList);
-
     },
 
     //双人房切换数据
     doubleChangePage(val) {
       this.doubleList = this.doublePageList[val - 1];
-      console.log(val);
     },
     //单人房切换数据
     singleChangePage(val) {
       this.singleList = this.singlePageList[val - 1];
-      console.log(val);
     },
     //套房切换数据
     suiteChangePage(val) {
       this.suiteList = this.suitePageList[val - 1];
-      console.log(val);
     }
   }
 };

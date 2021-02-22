@@ -25,9 +25,9 @@
         <div class="time">
           <span class="label">开放时间：</span>{{ item.time }}
         </div>
-        <div class="mengban">
+        <div class="mengban"  @click="toDestinations(item.id)">
           <div class="mengban-center">
-            <div>立即预定</div>
+            <div >立即预定</div>
             <div class="gang">——</div>
             <img src="/static/img/scenery/jiantouh.png" alt="" />
           </div>

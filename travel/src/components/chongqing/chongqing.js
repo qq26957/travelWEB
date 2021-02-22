@@ -109,6 +109,10 @@ export default {
     //切换数据
     changePage(val) {
       this.dataList = this.pageList[val - 1];
-    }
+    },
+     //进入景点具体页面
+     toDestinations(val) {
+      this.$router.push("/hotAttractions");
+    },
   }
 };

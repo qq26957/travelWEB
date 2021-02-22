@@ -194,11 +194,11 @@ export default {
     checkLogin() {
       let flag = window.sessionStorage.getItem("loginFlag");
     
-      if (flag=="true") {
-        console.log("真");
+      if (flag==="true") {
+        console.log("已经登陆");
         this.loginFlag = true;
       } else {
-        console.log("假");
+        console.log("未登录");
         this.loginFlag = false;
       }
     },

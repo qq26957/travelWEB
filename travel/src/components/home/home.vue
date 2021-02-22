@@ -143,7 +143,7 @@
                 <div class="center">
                   <h3>{{ item.name }}</h3>
                   <h1>{{ item.english }}</h1>
-                  <button class="btn">查看更多</button>
+                  <button class="btn" @click="toDestinations(item.id)">查看更多</button>
                 </div>
               </div>
               <div v-show="!item.flag" class="mengban" :key="'mengban'">

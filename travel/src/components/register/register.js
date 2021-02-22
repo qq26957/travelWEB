@@ -84,14 +84,14 @@ export default {
     };
   },
   created() {
-    console.log("mmmp");
   },
   methods: {
     toLogin() {
       this.$router.push("/login");
     },
     submitForm(val) {
-      console.log(val);
+
+      
     }
     //发送邮件
   }

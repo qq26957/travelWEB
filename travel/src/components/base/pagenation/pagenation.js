@@ -32,7 +32,6 @@ export default{
     },
     methods: {
         handleCurrentChange(val){
-            console.log(val)
             this.$emit('changePage',val);
         }
     },

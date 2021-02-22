@@ -127,7 +127,6 @@ export default {
       this.startSpot = this.$route.query.startSpot;
       this.price = this.$route.query.price;
       this.childPrice = this.$route.query.childPrice;
-      console.log(this.$route.query);
     },
     //返回上一页
     back() {

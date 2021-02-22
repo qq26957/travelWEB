@@ -12,7 +12,7 @@ export default {
       pageSize: 4,
       overseasList: [
         {
-          id: '1',
+          id: "1",
           imgUrl: `${imgBaseUrl}siguniangshan.jpg`,
           title: "四姑娘山2日半自助游",
           characteristic: "看雪山",
@@ -25,7 +25,7 @@ export default {
           presentPrice: "￥1099"
         },
         {
-          id: '7',
+          id: "7",
           imgUrl: `${imgBaseUrl}siguniangshan.jpg`,
           title: "四姑娘山2日半自助游",
           characteristic: "看雪山",
@@ -38,7 +38,7 @@ export default {
           presentPrice: "￥1099"
         },
         {
-          id: '2',
+          id: "2",
           imgUrl: "xianggelila.jpg",
           title: "香格里拉",
           characteristic: "晚间篝火",
@@ -63,9 +63,9 @@ export default {
           originalPrice: "￥2096",
           presentPrice: "￥1099"
         },
-       
+
         {
-            id: "5",
+          id: "5",
           imgUrl: "",
           title: "香港3日半自助游",
           characteristic: "港式早餐",
@@ -78,7 +78,7 @@ export default {
           presentPrice: "￥1099"
         },
         {
-            id: "6",
+          id: "6",
           imgUrl: "",
           title: "香港3日半自助游",
           characteristic: "港式早餐",
@@ -108,7 +108,6 @@ export default {
         this.pageList.push(this.overseasList.splice(0, this.pageSize));
       }
       this.dataList = this.pageList[0];
-      console.log(this.pageList, this.dataList);
     },
     //获取数据
     fetchData() {
@@ -117,6 +116,10 @@ export default {
     //切换数据
     changePage(val) {
       this.dataList = this.pageList[val - 1];
+    },
+    //进入景点具体页面
+    toDestinations(val) {
+      this.$router.push("/hotAttractions");
     }
   }
 };

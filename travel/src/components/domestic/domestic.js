@@ -108,7 +108,6 @@ export default {
         this.pageList.push(this.domesticList.splice(0, this.pageSize));
       }
       this.dataList = this.pageList[0];
-      console.log(this.pageList, this.dataList);
     },
     //获取数据
     fetchData() {
@@ -117,6 +116,10 @@ export default {
     //切换数据
     changePage(val) {
       this.dataList = this.pageList[val - 1];
-    }
+    },
+    //进入景点具体页面
+    toDestinations(val) {
+      this.$router.push("/hotAttractions");
+    },
   }
 };

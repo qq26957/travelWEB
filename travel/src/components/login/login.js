@@ -45,7 +45,9 @@ export default {
      
     },
     submitForm(val) {
-      console.log(val);
+      window.sessionStorage.setItem("loginFlag",true);
+      this.$router.push("/");
+
     }
   }
 };

@@ -118,6 +118,7 @@ export default {
     //切换数据
     changePage(val) {
       this.dataList = this.pageList[val - 1];
-    }
+    }, 
+    
   }
 };

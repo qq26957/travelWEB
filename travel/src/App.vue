@@ -71,8 +71,6 @@ export default {
   },
   created() {
     this.initActive();
-    window.sessionStorage["loginFlag"] = true;
-    this.checkLogin();
   },
 
   methods: {
@@ -82,11 +80,6 @@ export default {
     initActive() {
       this.$router.push("/");
     },
-    //验证是否登录
-    checkLogin(){
-     let flag =  window.sessionStorage.getItem("loginFlag");
-        console.log(flag);
-    }
   }
 };
 </script>

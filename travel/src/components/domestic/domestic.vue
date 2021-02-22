@@ -27,9 +27,9 @@
               <li class="content-item" v-for="item in dataList" :key="item.id" >
                 <div class="left">
                   <img :src="item.imgUrl" alt="" class="left-img" />
-                  <div class="left-mengban">
+                  <div class="left-mengban"  @click="toDestinations(item.id)">
                     <div class="left-mengban-content">
-                      <h4>立即预定</h4>
+                      <h4 >立即预定</h4>
                       <h3>——</h3>
                       <div class="jiantou2">
                         <img src="/static/img/home/jiantou.png" alt="" />

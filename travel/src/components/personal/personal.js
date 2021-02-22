@@ -285,7 +285,7 @@ export default {
           message: '注销成功!'
         });
         this.$router.go("/");
-      
+        window.sessionStorage.setItem('loginFlag', false);
       }).catch(() => {
         this.$message({
           type: 'info',

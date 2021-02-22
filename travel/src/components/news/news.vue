@@ -25,7 +25,7 @@
             <ul class="content">
               <li class="content-item" v-for="(item,index) in dataList" :key="index" @click="toNewsDetails(index)">
                 <h4 class="content-item-title">{{ item.title }}</h4>
-                <div class="content-item-content">{{ item.content }}</div>
+                <div class="content-item-content">{{ item.simplifyContent }}</div>
                 <h5 class="content-item-time">{{ item.time }}</h5>
               </li>
             </ul>
