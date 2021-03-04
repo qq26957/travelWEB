@@ -61,7 +61,7 @@
           <div class="tab-item-content">
             <ul class="order">
               <li class="order-li" v-for="(item, index) in unpaid" :key="index">
-                <div class="order-li-header">
+                <div class="order-li-header not-pay">
                   <el-checkbox v-model="selectNotTrip[index]"
                     ><span>订单号 ： </span
                     ><span class="order-id">{{
@@ -109,7 +109,7 @@
                 v-for="(item, index) in notEvaluated"
                 :key="index"
               >
-                <div class="order-li-header">
+                <div class="order-li-header not-evaluated">
                   <el-checkbox v-model="selectNotTrip[index]"
                     ><span>订单号 ： </span
                     ><span class="order-id">{{
@@ -133,58 +133,60 @@
                   >
                     去评价
                   </div>
-                  <el-dialog title="评价" :visible.sync="dialogFormVisible" >
+                  <el-dialog title="评价" :visible.sync="dialogFormVisible">
                     <div id="evalute">
-                    <p style="color: rgb(22 14 159); foot-size: 20px">请对该次旅行进行评级打分，我们会将你的优秀评价展示给其他人（<span style="color: #dd8021;">可以点击星星进行打分</span>）</p>
-                    <el-form :model="evaluteForm" style="width: 500px">
-                      <el-form-item label="旅行交通：" :label-width="'100px'">
-                        <el-rate
-                          v-model="evaluteForm.traffic"
-                          :colors="colors"
-                          style="margin:12px"
-                          show-text
-                        >
-                        </el-rate>
-                      </el-form-item>
-                      <el-form-item label="餐饮住食：" :label-width="'100px'">
-                        <el-rate
-                          v-model="evaluteForm.hotel"
-                          :colors="colors"
-                          style="margin:12px"
-                          show-text
-                        >
-                        </el-rate>
-                      </el-form-item>
-                      <el-form-item label="游玩乐趣：" :label-width="'100px'">
-                        <el-rate
-                          v-model="evaluteForm.play"
-                          :colors="colors"
-                          style="margin:12px"
-                          show-text
-                        >
-                        </el-rate>
-                      </el-form-item>
-                      <el-form-item label="文字描述：" :label-width="'100px'">
-                        <el-input
-                          type="textarea"
-                          :rows="2"
-                          placeholder="请输入您的评价"
-                          v-model="evaluteForm.text"
-                        >
-                        </el-input>
-                      </el-form-item>
-                    </el-form>
+                      <p style="color: rgb(22 14 159); foot-size: 20px">
+                        请对该次旅行进行评级打分，我们会将你的优秀评价展示给其他人（<span
+                          style="color: #dd8021;"
+                          >可以点击星星进行打分</span
+                        >）
+                      </p>
+                      <el-form :model="evaluteForm" style="width: 500px">
+                        <el-form-item label="旅行交通：" :label-width="'100px'">
+                          <el-rate
+                            v-model="evaluteForm.traffic"
+                            :colors="colors"
+                            style="margin:12px"
+                            show-text
+                          >
+                          </el-rate>
+                        </el-form-item>
+                        <el-form-item label="餐饮住食：" :label-width="'100px'">
+                          <el-rate
+                            v-model="evaluteForm.hotel"
+                            :colors="colors"
+                            style="margin:12px"
+                            show-text
+                          >
+                          </el-rate>
+                        </el-form-item>
+                        <el-form-item label="游玩乐趣：" :label-width="'100px'">
+                          <el-rate
+                            v-model="evaluteForm.play"
+                            :colors="colors"
+                            style="margin:12px"
+                            show-text
+                          >
+                          </el-rate>
+                        </el-form-item>
+                        <el-form-item label="文字描述：" :label-width="'100px'">
+                          <el-input
+                            type="textarea"
+                            :rows="2"
+                            placeholder="请输入您的评价"
+                            v-model="evaluteForm.text"
+                          >
+                          </el-input>
+                        </el-form-item>
+                      </el-form>
                     </div>
                     <div slot="footer" class="dialog-footer">
                       <el-button @click="dialogFormVisible = false"
                         >取 消</el-button
                       >
-                      <el-button
-                        type="primary"
-                        @click="postEvalute"
+                      <el-button type="primary" @click="postEvalute"
                         >提交评论</el-button
                       >
-                  
                     </div>
                   </el-dialog>
                   <div
@@ -211,7 +213,7 @@
                 v-for="(item, index) in Completed"
                 :key="index"
               >
-                <div class="order-li-header">
+                <div class="order-li-header complated">
                   <el-checkbox v-model="selectNotTrip[index]"
                     ><span>订单号 ： </span
                     ><span class="order-id">{{
@@ -340,21 +342,35 @@
                 <span class="warning">注意</span
                 ><span>头像 仅支持jpg,png格式图片，且文件小于2M</span> 头像
               </div>
+              <div class="tab-item-content2-header-pre">
+                <img src="/api/hello/getpic" class="avatar" alt="图片" />
+                <h4>当前图像</h4>
+              </div>
               <div class="tab-item-content2-header-upload">
                 <el-upload
                   class="avatar-uploader"
-                  action="https://jsonplaceholder.typicode.com/posts/"
+                  ref="upload"
+                  drag
+                  action="/api/post"
                   :show-file-list="false"
+                  :on-change="handlePreview"
                   :on-success="handleAvatarSuccess"
+                  :on-error="handleAvatarError"
                   :before-upload="beforeAvatarUpload"
+                  :auto-upload="false"
                 >
-                  <img v-if="headerImg" :src="headerImg" class="avatar" />
+                  <img
+                    v-if="headerImg"
+                    :src="headerImg"
+                    class="avatar"
+                    alt="图片"
+                  />
+
                   <i v-else class="el-icon-plus avatar-uploader-icon"></i>
                 </el-upload>
               </div>
               <div class="tab-item-content2-header-bt">
-                <div class="bt">保存</div>
-                <img src="/static/img/personal/notice.png" alt="" />
+                <div class="bt" @click="submitUpload">保存</div>
                 <span>新头像将在审核后生效</span>
               </div>
             </div>
@@ -362,13 +378,69 @@
         >
         <el-tab-pane class="tab-item" name="6"
           ><div slot="label" class="tab-item-header">
+            <img src="/static/img/personal/pass.png" alt="" />密码更改
+          </div>
+          <div class="tab-item-content2">
+            <div class="tab-item-content2-message">
+              <div class="tab-item-content2-message-title">
+                密码更改
+              </div>
+              <div class="tab-item-content2-message-center">
+                <el-form
+                  :model="passwordForm"
+                  status-icon
+                  :rules="passRules"
+                  ref="passwordForm"
+                  label-width="100px"
+                  class="passForm"
+                >
+                  <el-form-item label="原始密码" prop="prePass">
+                    <el-input
+                      type="password"
+                      v-model="passwordForm.prePass"
+                      autocomplete="off"
+                    ></el-input>
+                  </el-form-item>
+                  <el-form-item label="新密码" prop="pass">
+                    <el-input
+                      type="password"
+                      v-model="passwordForm.pass"
+                      autocomplete="off"
+                    ></el-input>
+                  </el-form-item>
+                  <el-form-item label="确认密码" prop="checkPass">
+                    <el-input
+                      type="password"
+                      v-model="passwordForm.checkPass"
+                      autocomplete="off"
+                    ></el-input>
+                  </el-form-item>
+                  <el-form-item>
+                    <el-button
+                      type="primary"
+                      @click="passwordChange('passwordForm')"
+                      >提交</el-button
+                    >
+                    <el-button @click="resetForm('passwordForm')"
+                      >重置</el-button
+                    >
+                  </el-form-item>
+                </el-form>
+              </div>
+            </div>
+          </div></el-tab-pane
+        >
+        <el-tab-pane class="tab-item " name="7"
+          > 
+          <div slot="label" class="tab-item-header">
             <img src="/static/img/personal/logout.png" alt="" />退出登录
           </div>
-          <div class="tab-item-content3">
+          <div class="tab-item-content3 logout" >
             <h2 class="text">亲爱的用户，你即将注销登录，你确认退出？</h2>
             <div class="bt-confirm" @click="logout">确定退出</div>
-            </div
-        ></el-tab-pane>
+          </div>
+          </el-tab-pane
+        >
       </el-tabs>
     </el-container>
   </div>

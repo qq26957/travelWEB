@@ -133,6 +133,9 @@ export default {
   computed: {},
   created() {
     this.checkLogin();
+    this.test();
+    this.test2();
+    this.test3();
   },
   mounted() {
     window.addEventListener("scroll", this.watchScroll);
@@ -193,8 +196,8 @@ export default {
     //验证是否登录
     checkLogin() {
       let flag = window.sessionStorage.getItem("loginFlag");
-    
-      if (flag==="true") {
+
+      if (flag === "true") {
         console.log("已经登陆");
         this.loginFlag = true;
       } else {
@@ -205,6 +208,55 @@ export default {
     //跳转到个人中心
     toPersonal() {
       this.$router.push("/personal");
+    },
+    test() {
+      this.axios
+        .get("/api/hello/person", {
+          params: {
+            name: "嘿嘿嘿"
+          }
+        })
+        .then(res => {
+          console.log(res.data);
+        })
+        .catch(err => {
+          console.log(err);
+        });
+    },
+    test2() {
+      this.axios
+        .post(
+          "/api/hello/getCors",
+          {},
+          {
+            params: {
+              user: "张三",
+              pass: "dddddd"
+            }
+          }
+        )
+        .then(res => {
+          console.log(res.data);
+        })
+        .catch(err => {
+          console.log(err);
+        });
+    },
+    test3() {
+      this.axios
+        .post(
+          "api/hello/postCors",
+          {
+            user: "李四",
+            pass: "ffffff"
+          },
+          {
+            header: { contentType: "application/x-www-form-urlencoded" }
+          }
+        )
+        .then(res => {
+          console.log(res.data);
+        });
     }
   }
 };

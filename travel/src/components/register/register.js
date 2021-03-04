@@ -17,7 +17,8 @@ export default {
         passwordCheck: "",
         email: "",
         name: "",
-        IDcard: ""
+        IDcard: "",
+        checkCode:""
       },
 
       rules: {
@@ -90,9 +91,10 @@ export default {
       this.$router.push("/login");
     },
     submitForm(val) {
-
+    },
+    //验证码生成
+    drawCheckCode(){
       
     }
-    //发送邮件
   }
 };

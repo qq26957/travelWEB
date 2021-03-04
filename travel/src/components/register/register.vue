@@ -55,6 +55,20 @@
               <i slot="prefix" class="el-input__icon el-icon-bank-card"></i>
             </el-input>
           </el-form-item>
+          <el-form-item label="验证码" prop="checkCode">
+            <div
+              class="draw"
+              style="width:120px;height:40px; display:inline-block"
+            >
+              验证码
+            </div>
+            <el-input
+              placeholder="请输入验证码"
+              v-model="ruleForm.checkCode"
+              style="width:120px"
+            >
+            </el-input>
+          </el-form-item>
           <el-form-item>
             <el-button
               type="primary"

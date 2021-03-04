@@ -1,6 +1,15 @@
 export default {
   name: "personal",
   data() {
+    var passCheck = (rule, value, callback) => {
+      if (value === "") {
+        callback(new Error("请再次输入密码"));
+      } else if (value !== this.passwordForm.pass) {
+        callback(new Error("两次输入密码不一致!"));
+      } else {
+        callback();
+      }
+    };
     return {
       notTrip: [
         {
@@ -85,9 +94,41 @@ export default {
           price: "3400"
         }
       ],
-      colors: ['#99A9BF', '#F7BA2A', '#FF9900'],
+      passwordForm: {
+        prePass: "",
+        pass: "",
+        checkPass: ""
+      },
+      colors: ["#99A9BF", "#F7BA2A", "#FF9900"],
       headerImg: "",
       ruleForm: {},
+      passRules: {
+        prePass: [
+          {
+            required: true,
+            message: "原密码不能为空",
+            trigger: "blur"
+          },
+          {
+            pattern: /^[a-zA-Z]\w{5,12}$/,
+            message: "请输入正确格式的原密码，6-12位字符且以字母开头",
+            trigger: "blur"
+          }
+        ],
+        pass: [
+          {
+            required: true,
+            message: "新设置密码不能为空",
+            trigger: "blur"
+          },
+          {
+            pattern: /^[a-zA-Z]\w{5,12}$/,
+            message: "请输入正确格式的密码，6-12位字符且以字母开头",
+            trigger: "blur"
+          }
+        ],
+        checkPass: [{ validator: passCheck, trigger: "blur" }]
+      },
       personalMessage: {
         phone: "13778129834",
         email: "24587924@qq.com",
@@ -139,8 +180,8 @@ export default {
           }
         ]
       },
-      dialogFormVisible:false,
-      evaluteForm:{
+      dialogFormVisible: false,
+      evaluteForm: {
         traffic: 4.5,
         hotel: 4.6,
         play: 5,
@@ -150,15 +191,40 @@ export default {
   },
   created() {
     this.ruleForm = this.personalMessage;
+    // this.getHeaderImg();
   },
   methods: {
+    // //获取当前得头像信息
+    // getHeaderImg() {
+    //   this.axios
+    //     .post("/api/hello/getpic", {}, { responseType: "blob" })
+    //     .then(res => {
+    //       const data = res.data;
+    //       const blob = new Blob([data], { type: "application/zip" });
+    //       let url = window.URL || window.webkitURL || window.moxURL;
+    //       this.headerImg = url.createObjectURL(blob);
+    //     });
+    // },
+    //上传成功
     handleAvatarSuccess(res, file) {
       this.headerImg = URL.createObjectURL(file.raw);
+      this.$message({
+        message: "图片已经成功上传，验证通过后即可使用",
+        type: "success"
+      });
     },
+    //上传失败
+    handleAvatarError() {
+      this.$message({
+        message: "图片上传失败，请稍后重试",
+        type: "error"
+      });
+    },
+    //上传验证
     beforeAvatarUpload(file) {
+      console.log(file);
       const isJPG = file.type === "image/png" || file.type === "image/jpeg";
       const isLt2M = file.size / 1024 / 1024 < 2;
-
       if (!isJPG) {
         this.$message.error("上传头像图片只能是 JPG/PNG/SVG 格式!");
       }
@@ -166,6 +232,27 @@ export default {
         this.$message.error("上传头像图片大小不能超过 2MB!");
       }
       return isJPG && isLt2M;
+    },
+    //添加文件
+    handlePreview(file) {
+      console.log(file);
+      const isJPG =
+        file.raw.type === "image/png" || file.raw.type === "image/jpeg";
+      const isLt2M = file.size / 1024 / 1024 < 2;
+      if (!isJPG) {
+        this.$message.error("上传头像图片只能是 JPG/PNG/SVG 格式!");
+      }
+      if (!isLt2M) {
+        this.$message.error("上传头像图片大小不能超过 2MB!");
+      }
+      if (isJPG && isLt2M) {
+        console.log(true);
+        this.headerImg = URL.createObjectURL(file.raw);
+      }
+    },
+    //上传文件
+    submitUpload() {
+      this.$refs.upload.submit();
     },
     //转到个人信息编辑
     changeEidt() {
@@ -175,9 +262,9 @@ export default {
     submitForm() {
       const loading = this.$loading({
         lock: true,
-        text: 'Loading',
-        spinner: 'el-icon-loading',
-        background: 'rgba(0, 0, 0, 0.7)'
+        text: "Loading",
+        spinner: "el-icon-loading",
+        background: "rgba(0, 0, 0, 0.7)"
       });
       setTimeout(() => {
         loading.close();
@@ -185,10 +272,9 @@ export default {
         this.$message({
           type: "success",
           message: "成功提交信息变更!"
-        })
+        });
       }, 1000);
-    }
-    ,
+    },
     //tab切换
     changeTab(activeName, oldActiveName) {
       if (oldActiveName == "5") {
@@ -216,7 +302,9 @@ export default {
         });
     },
     //查看订单
-    watchOrder(val) {},
+    watchOrder(val) {
+      console.log("进入了"+val);
+    },
     //评价订单
     evaluateOrder(val) {
       this.dialogFormVisible = true;
@@ -232,66 +320,101 @@ export default {
           dangerouslyUseHTMLString: true,
           showCancelButton: true
         }
-      ).then(() => {
-        const loading = this.$loading({
-          lock: true,
-          text: 'Loading',
-          spinner: 'el-icon-loading',
-          background: 'rgba(0, 0, 0, 0.7)'
-        });
-        setTimeout(() => {
-          loading.close();
-          this.$message({
-            type: 'success',
-            message: '支付成功'
+      )
+        .then(() => {
+          const loading = this.$loading({
+            lock: true,
+            text: "Loading",
+            spinner: "el-icon-loading",
+            background: "rgba(0, 0, 0, 0.7)"
           });
-          
-        }, 1500);
-
-
-      }).catch(() => {
-        this.$message({
-          type: 'info',
-          message: '已取消支付'
+          setTimeout(() => {
+            loading.close();
+            this.$message({
+              type: "success",
+              message: "支付成功"
+            });
+          }, 1500);
+        })
+        .catch(() => {
+          this.$message({
+            type: "info",
+            message: "已取消支付"
+          });
         });
-      });;
     },
     //提交订单评价
-    postEvalute(){
+    postEvalute() {
       const loading = this.$loading({
         lock: true,
-        text: 'Loading',
-        spinner: 'el-icon-loading',
-        background: 'rgba(0, 0, 0, 0.7)'
+        text: "Loading",
+        spinner: "el-icon-loading",
+        background: "rgba(0, 0, 0, 0.7)"
       });
       setTimeout(() => {
         loading.close();
         this.$message({
-          type: 'success',
-          message: '您已成功提交评价'
+          type: "success",
+          message: "您已成功提交评价"
         });
         this.dialogFormVisible = false;
       }, 1500);
     },
-    //退出登录
-    logout(){
-      this.$confirm('您即将退出账号登录', '提示', {
-        confirmButtonText: '确定',
-        cancelButtonText: '取消',
-        type: 'warning'
-      }).then(() => {
-        this.$message({
-          type: 'success',
-          message: '注销成功!'
+
+    //更改密码提交
+    passwordChange() {
+      console.log("密码提交");
+      this.axios.post("", { pass: this.passwordForm.pass }).then(data => {
+        console.log(data);
+        const loading = this.$loading({
+          lock: true,
+          text: "Loading",
+          spinner: "el-icon-loading",
+          background: "rgba(0, 0, 0, 0.7)"
         });
-        this.$router.go("/");
-        window.sessionStorage.setItem('loginFlag', false);
-      }).catch(() => {
-        this.$message({
-          type: 'info',
-          message: '已取消退出'
-        });          
+        setTimeout(() => {
+          loading.close();
+          this.$message({
+            type: "success",
+            message: "您已成功更改了密码"
+          });
+          this.dialogFormVisible = false;
+        }, 1500);
+      }).catch((err)=>{
+        this.$message={
+          message:"抱歉系统错误，密码更改未成功，请稍后尝试",
+          type:"warning"
+        }
       });
+    },
+
+    //清空密码框
+
+    resetForm(formName) {
+      this.$refs[formName].resetFields();
+    },
+
+    //退出登录
+    logout() {
+      this.$confirm("您即将退出账号登录", "提示", {
+        confirmButtonText: "确定",
+        cancelButtonText: "取消",
+        type: "warning"
+      })
+        .then(() => {
+          this.$message({
+            type: "success",
+            message: "注销成功!"
+          });
+          this.$router.go("/");
+          window.sessionStorage.setItem("loginFlag", false);
+        })
+        .catch(() => {
+          this.$message({
+            type: "info",
+            message: "已取消退出"
+          });
+        });
     }
   }
 };
