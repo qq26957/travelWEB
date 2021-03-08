@@ -7,43 +7,55 @@
       @selection-change="handleSelectionChange"
     >
       <el-table-column type="selection" width="55"> </el-table-column>
-      <el-table-column label="产品id" width="180">
+      <el-table-column label="产品id" width="140">
         <template slot-scope="scope">
           <i class="el-icon-time"></i>
           <span style="margin-left: 10px">{{ scope.row.date }}</span>
         </template>
       </el-table-column>
-      <el-table-column label="景点名" width="180">
+      <el-table-column label="景点名" width="140">
         <template slot-scope="scope">
           <i class="el-icon-time"></i>
           <span style="margin-left: 10px">{{ scope.row.date }}</span>
         </template>
       </el-table-column>
-      <el-table-column label="景点描述" width="180">
+      <el-table-column label="景点描述" width="140">
         <template slot-scope="scope">
           <i class="el-icon-time"></i>
           <span style="margin-left: 10px">{{ scope.row.date }}</span>
         </template>
       </el-table-column>
-      <el-table-column label="满意度" width="180">
+      <el-table-column label="满意度" width="140">
         <template slot-scope="scope">
           <i class="el-icon-time"></i>
           <span style="margin-left: 10px">{{ scope.row.date }}</span>
         </template>
       </el-table-column>
-      <el-table-column label="现在价格" width="180">
+      <el-table-column label="现在价格" width="140">
         <template slot-scope="scope">
           <i class="el-icon-time"></i>
           <span style="margin-left: 10px">{{ scope.row.date }}</span>
         </template>
       </el-table-column>
-      <el-table-column label="以往价格" width="180">
+      <el-table-column label="以往价格" width="140">
         <template slot-scope="scope">
           <i class="el-icon-time"></i>
           <span style="margin-left: 10px">{{ scope.row.date }}</span>
         </template>
       </el-table-column>
-      <el-table-column label="出发地" width="180">
+      <el-table-column label="出发地" width="140">
+        <template slot-scope="scope">
+          <i class="el-icon-time"></i>
+          <span style="margin-left: 10px">{{ scope.row.date }}</span>
+        </template>
+      </el-table-column>
+       <el-table-column label="产品特色" width="140">
+        <template slot-scope="scope">
+          <i class="el-icon-time"></i>
+          <span style="margin-left: 10px">{{ scope.row.date }}</span>
+        </template>
+      </el-table-column>
+      <el-table-column label="景点介绍" width="140">
         <template slot-scope="scope">
           <i class="el-icon-time"></i>
           <span style="margin-left: 10px">{{ scope.row.date }}</span>
