@@ -40,21 +40,7 @@
               <i slot="prefix" class="el-input__icon el-icon-lock"></i>
             </el-input>
           </el-form-item>
-          <el-form-item label="邮  箱" prop="email">
-            <el-input placeholder="请输入邮箱" v-model="ruleForm.email">
-              <i slot="prefix" class="el-input__icon el-icon-message"></i>
-            </el-input>
-          </el-form-item>
-          <el-form-item label="姓  名" prop="name">
-            <el-input placeholder="请输入真实姓名" v-model="ruleForm.name">
-              <i slot="prefix" class="el-input__icon el-icon-s-custom"></i>
-            </el-input>
-          </el-form-item>
-          <el-form-item label="身份证" prop="IDcard">
-            <el-input placeholder="请输入身份证" v-model="ruleForm.IDcard">
-              <i slot="prefix" class="el-input__icon el-icon-bank-card"></i>
-            </el-input>
-          </el-form-item>
+         
           <el-form-item label="验证码" prop="checkCode" class="checkCode">
               <el-input
               placeholder="请输入验证码"
@@ -87,10 +73,10 @@
 </template>
 
 <script>
-import register from "./register.js";
-export default register;
+import pageRegister from "./pageRegister.js";
+export default pageRegister;
 </script>
 
 <style scoped lang="scss">
-@import "./register.scss";
+@import "./pageRegister.scss";
 </style>

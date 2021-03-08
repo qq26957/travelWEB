@@ -1,6 +1,6 @@
 import canvasCode from "../base/canvasCode/canvasCode.vue";
 export default {
-  name: "register",
+  name: "pageRegister",
   components: {
     canvasCode
   },
@@ -64,37 +64,6 @@ export default {
           }
         ],
         passwordCheck: [{ validator: validatePass2, trigger: "blur" }],
-        email: [
-          {
-            required: true,
-            message: "邮箱不能为空",
-            trigger: "blur"
-          },
-          {
-            pattern: /^\w+([-+.]\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*$/,
-            message: "请输入正确的邮箱",
-            trigger: "blur"
-          }
-        ],
-        name: [
-          {
-            required: true,
-            message: "姓名不能为空",
-            trigger: "blur"
-          }
-        ],
-        IDcard: [
-          {
-            required: true,
-            message: "身份证不能为空",
-            trigger: "blur"
-          },
-          {
-            pattern: /(^\d{15}$)|(^\d{18}$)|(^\d{17}(\d|X|x)$)/,
-            message: "请输入正确的身份证号",
-            trigger: "blur"
-          }
-        ],
         checkCode: [{ validator: checkCode, trigger: "blur" }]
       }
     };
@@ -102,10 +71,8 @@ export default {
   created() {},
   methods: {
     toLogin() {
-      this.$router.push("/login");
+      this.$router.push("/");
     },
-    submitForm(val) {},
-    //验证码生成
-    drawCheckCode() {}
+    submitForm(val) {}
   }
 };

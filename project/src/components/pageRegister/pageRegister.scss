@@ -3,7 +3,7 @@
 
   &-background {
     width: 100%;
-    height: 100%;
+    height: 800px;
 
     >img {
       width: 100%;
@@ -28,7 +28,7 @@
       top: 15%;
       padding: 0 50px 50px;
       width: 400px;
-      height: 550px;
+      height: 350px;
       border: 1px solid rgba(202, 190, 190, 0.842);
       border-radius: 20px;
       background: rgba(128, 159, 224, 0.5);
@@ -38,6 +38,7 @@
         border-bottom: 1px solid rgb(112, 108, 108);
         font-weight: 600;
         line-height: 50px;
+        margin-bottom: 20px;
       }
 
       .bt-register {
@@ -56,6 +57,7 @@
 
     &-ipt {
       position: absolute;
+      left: 0px;
     }
 
     &-draw {
@@ -70,6 +72,6 @@
   }
 }
 
-/deep/ .el-form-item__label {
+::v-deep .el-form-item__label {
   color: black;
 }
