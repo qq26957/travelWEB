@@ -150,4 +150,15 @@ li {
   position: absolute;
   right: 40px;
 }
+.el-table .cell.el-tooltip {
+  white-space: inherit;
+  text-align: left;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 4;
+  overflow: hidden;
+}
+.dialog-footer .el-button{
+  margin: 0 50px ;
+}
 </style>
