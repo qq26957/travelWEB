@@ -40,7 +40,7 @@
       </el-table-column>
       <el-table-column label="性别" width="100">
         <template slot-scope="scope">
-          <span>{{ scope.row.gender }}</span>
+          <span>{{ scope.row.gender=="1"?"男":"女" }}</span>
         </template>
       </el-table-column>
       <el-table-column label="生日" width="120">
@@ -124,8 +124,8 @@
           </el-input>
          </el-form-item>
         <el-form-item label="性  别" prop="gender">
-          <el-radio v-model="radio" label="1">男</el-radio>
-          <el-radio v-model="radio" label="2">女</el-radio>
+          <el-radio v-model="ruleForm.gender" label="1">男</el-radio>
+          <el-radio v-model="ruleForm.gender" label="2">女</el-radio>
         </el-form-item>
         
         <el-form-item label="上传头像" prop="headerImg">

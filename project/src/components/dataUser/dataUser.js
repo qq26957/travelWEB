@@ -10,7 +10,7 @@ export default {
           password: "ee11qqqee",
           name: "王小虎",
           nickName: "廊坊一霸",
-          gender: "男",
+          gender: "1",
           birth: "1997-11-01",
           headImg: "1231sdasdas",
           IDcard: "511989199612093379"
@@ -21,7 +21,7 @@ export default {
           password: "ee11qqqee",
           name: "王小虎",
           nickName: "廊坊一霸",
-          gender: "男",
+          gender: "1",
           birth: "1997-11-01",
           headImg: "1231sdasdas",
           IDcard: "511989199612093379"
@@ -104,6 +104,8 @@ export default {
     };
   },
   methods: {
+    //数据加工
+
     //编辑
     handleEdit(index, row) {
       this.ruleForm = row;

@@ -1,5 +1,6 @@
-.dataScenic {
-  text-align: center;
+::v-deep .el-table .cell.el-tooltip {
+  white-space: inherit;
+  text-align: left;
   display: -webkit-box;
   -webkit-box-orient: vertical;
   -webkit-line-clamp: 4;
