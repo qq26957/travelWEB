@@ -118,8 +118,8 @@ export default {
       this.multipleSelection = val;
     },
     handleInsert() {
-      console.log("新增");
       this.dialogFormVisible = true;
+      this.initForm();
     },
     //上传头像
     handleAvatarSuccess(res, file) {
@@ -137,8 +137,29 @@ export default {
       }
       return isJPG && isLt2M;
     },
-    submitMessage() {
-      this.dialogFormVisible = false;
+    //提交信息
+    submitForm(formName) {
+      this.$refs[formName].validate((valid) => {
+        if (valid) {
+          console.log("提交成功");
+        } else {
+          console.log('error submit!!');
+          return false;
+        }
+      });
+    },
+    initForm(){
+      this.ruleForm = {
+        userId: "",
+        password: "",
+        email: "",
+        name: "",
+        IDcard: "",
+        gender: 1,
+        nickName: "",
+        birth: "",
+        headerImg: ""
+      }
     }
   }
 };

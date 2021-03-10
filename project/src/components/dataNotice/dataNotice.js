@@ -83,12 +83,87 @@ export default {
                   2005年，时任浙江省委书记的习近平同志把“红船精神”概括为开天辟地、敢为人先的首创精神，坚定理想、百折不挠的奋斗精神，立党为公、忠诚为民的奉献精神。
                   2017年10月31日，党的十九大闭幕仅一周，习近平总书记带领中共中央政治局常委，瞻仰上海中共一大会址和浙江嘉兴南湖红船。在南湖革命纪念馆参观时，习近平总书记表示，我们要结合时代特点大力弘扬“红船精神”。`
         }
-      ]
+      ],
+      dialogFormVisible: false,
+      ruleForm: {
+        newsId: "",
+        title: "",
+        time: "",
+        source: "",
+        author: "",
+        editor: "",
+        content: "",
+        simplifyContent: ""
+      },
+      rules: {
+        newsId: [
+          {
+            required: true,
+            message: "公告资讯不能为空",
+            trigger: "blur"
+          },
+          {
+            pattern: /(^N[a-z]{2}[0-9]{6}$)/,
+            message: "请输入正确的公告资讯编号(列入：Nsc123123，Nyn123123)",
+            trigger: "blur"
+          }
+        ],
+        title: [
+          {
+            required: true,
+            message: "公告标题不能为空",
+            trigger: "blur"
+          }
+        ],
+        time: [
+          {
+            required: true,
+            message: "发布时间不能为空",
+            trigger: "blur"
+          }
+        ],
+        source: [
+          {
+            required: true,
+            message: "公告资讯来源不能为空",
+            trigger: "blur"
+          }
+        ],
+        author: [
+          {
+            required: true,
+            message: "作者不能为空",
+            trigger: "blur"
+          }
+        ],
+        editor: [
+          {
+            required: true,
+            message: "编辑不能为空",
+            trigger: "blur"
+          }
+        ],
+        content: [
+          {
+            required: true,
+            message: "请输入正文内容",
+            trigger: "blur"
+          }
+        ],
+        simplifyContent: [
+          {
+            required: true,
+            message: "请输入简写公告资讯",
+            trigger: "blur"
+          }
+        ]
+      }
     };
   },
   methods: {
     handleEdit(index, row) {
-      console.log(index, row);
+      this.ruleForm = row;
+      this.dialogFormVisible = true;
     },
     handleDelete(index, row) {
       console.log(index, row);
@@ -97,7 +172,32 @@ export default {
       this.multipleSelection = val;
     },
     handleInsert() {
-      console.log("新增");
+      this.dialogFormVisible = true;
+      this.initForm();
+    },
+      //提交信息
+      submitForm(formName) {
+        this.$refs[formName].validate((valid) => {
+          if (valid) {
+            console.log("提交成功");
+          } else {
+            console.log('error submit!!');
+            return false;
+          }
+        });
+      },
+    //表单初始化
+    initForm() {
+      this.ruleForm = {
+        newsId: "",
+        title: "",
+        time: "",
+        source: "",
+        author: "",
+        editor: "",
+        content: "",
+        simplifyContent: ""
+      };
     }
   }
 };

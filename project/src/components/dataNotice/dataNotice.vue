@@ -67,6 +67,65 @@
         </template>
       </el-table-column>
     </el-table>
+
+    <el-dialog title="公告资讯信息" :visible.sync="dialogFormVisible" center>
+      <el-form
+        :model="ruleForm"
+        :rules="rules"
+        ref="ruleForm"
+        label-width="130px"
+        class="demo-ruleForm"
+        style="width:400px; margin-left:100px"
+      >
+        <el-form-item label="公告资讯编号" prop="newsId">
+          <el-input
+            placeholder="请输入公告资讯编号"
+            v-model.number="ruleForm.newsId"
+          >
+          </el-input>
+        </el-form-item>
+        <el-form-item label="标题" prop="title">
+          <el-input placeholder="请输入标题" v-model.number="ruleForm.title">
+          </el-input>
+        </el-form-item>
+        <el-form-item label="发布时间" prop="time">
+          <el-date-picker
+            v-model="ruleForm.startTime"
+            type="date"
+            placeholder="选择日期"
+            value-format="yyyy-MM-dd"
+          >
+          </el-date-picker>
+        </el-form-item>
+        <el-form-item label="来源" prop="source">
+          <el-input placeholder="请输入来源" v-model.number="ruleForm.source">
+          </el-input>
+        </el-form-item>
+        <el-form-item label="作者" prop="author">
+          <el-input placeholder="请输入作者" v-model="ruleForm.author">
+          </el-input>
+        </el-form-item>
+        <el-form-item label="编辑" prop="editor">
+          <el-input placeholder="请输入出发编辑" v-model="ruleForm.editor">
+          </el-input>
+        </el-form-item>
+        <el-form-item label="正文内容" prop="content">
+          <el-input placeholder="请输入正文内容" v-model="ruleForm.content">
+          </el-input>
+        </el-form-item>
+        <el-form-item label="简写公告资讯" prop="simplifyContent">
+          <el-input
+            placeholder="请输入简写公告资讯"
+            v-model="ruleForm.simplifyContent"
+          >
+          </el-input>
+        </el-form-item>
+      </el-form>
+      <div slot="footer" class="dialog-footer">
+        <el-button @click="dialogFormVisible = false">取 消</el-button>
+        <el-button type="primary" @click="submitForm('ruleForm')">确 定</el-button>
+      </div>
+    </el-dialog>
   </div>
 </template>
 

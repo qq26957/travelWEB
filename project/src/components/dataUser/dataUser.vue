@@ -15,10 +15,10 @@
       </el-table-column>
       <el-table-column label="密码" width="140">
         <template slot-scope="scope">
-          <span>{{ scope.row.password }}</span>
+          <span type="password">{{ scope.row.password }}</span>
         </template>
       </el-table-column>
-        <el-table-column label="身份证" width="160">
+      <el-table-column label="身份证" width="160">
         <template slot-scope="scope">
           <span>{{ scope.row.IDcard }}</span>
         </template>
@@ -40,7 +40,7 @@
       </el-table-column>
       <el-table-column label="性别" width="100">
         <template slot-scope="scope">
-          <span>{{ scope.row.gender=="1"?"男":"女" }}</span>
+          <span>{{ scope.row.gender == "1" ? "男" : "女" }}</span>
         </template>
       </el-table-column>
       <el-table-column label="生日" width="120">
@@ -68,7 +68,6 @@
         </template>
       </el-table-column>
     </el-table>
-
 
     <el-dialog title="新增用户信息" :visible.sync="dialogFormVisible" center>
       <el-form
@@ -107,8 +106,8 @@
             <i slot="prefix" class="el-input__icon el-icon-s-custom"></i>
           </el-input>
         </el-form-item>
-            
-           <el-form-item label="身份证" prop="IDcard">
+
+        <el-form-item label="身份证" prop="IDcard">
           <el-input placeholder="请输入身份证" v-model="ruleForm.IDcard">
             <i slot="prefix" class="el-input__icon el-icon-bank-card"></i>
           </el-input>
@@ -122,12 +121,12 @@
           <el-input placeholder="请输入生日" v-model="ruleForm.birth">
             <i slot="prefix" class="el-input__icon el-icon-present"></i>
           </el-input>
-         </el-form-item>
+        </el-form-item>
         <el-form-item label="性  别" prop="gender">
           <el-radio v-model="ruleForm.gender" label="1">男</el-radio>
           <el-radio v-model="ruleForm.gender" label="2">女</el-radio>
         </el-form-item>
-        
+
         <el-form-item label="上传头像" prop="headerImg">
           <el-upload
             class="avatar-uploader"
@@ -140,13 +139,10 @@
             <i v-else class="el-icon-plus avatar-uploader-icon"></i>
           </el-upload>
         </el-form-item>
-     
       </el-form>
       <div slot="footer" class="dialog-footer">
         <el-button @click="dialogFormVisible = false">取 消</el-button>
-        <el-button type="primary" @click="submitMessage"
-          >确 定</el-button
-        >
+        <el-button type="primary" @click="submitForm('ruleForm')">确 定</el-button>
       </div>
     </el-dialog>
   </div>
